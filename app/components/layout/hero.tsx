@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <div className="relative h-full w-full rounded-b-3xl bg-[#171023] py-8">
       <div className="absolute top-0 z-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
-      <div className="bg-gradient-radial absolute top-0 z-0 h-full w-full from-[#FF00F5] to-[#BD00FF]/0 opacity-20" />
+      <div className="bg-gradient-radial absolute top-0 z-0 h-full w-full from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
       <div className="absolute bottom-12 flex items-center justify-center px-12">
         <img src={starsImage} alt="Stars" className="h-full" />
       </div>
