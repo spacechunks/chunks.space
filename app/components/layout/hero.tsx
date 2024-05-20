@@ -1,21 +1,19 @@
-import stonesImage from "~/assets/images/stones.png";
 import starsImage from "~/assets/images/stars.png";
 import Header from "~/components/layout/header";
 import { Button } from "~/components/ui/button";
 import textLogoImage from "~/assets/images/text-logo.png";
 import { Link } from "@remix-run/react";
+import Stone from "~/components/stone";
 
 export default function Hero() {
   return (
     <div className="relative h-full w-full rounded-b-3xl bg-[#171023] py-8">
       <div className="absolute top-0 z-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="bg-gradient-radial absolute top-0 z-0 h-full w-full from-[#FF00F5] to-[#BD00FF]/0 opacity-20" />
-      <div className="container absolute -bottom-12 px-12">
-        <img src={stonesImage} alt="Stones" className="h-full" />
-      </div>
-      <div className="container absolute bottom-12 px-12">
+      <div className="absolute bottom-12 flex items-center justify-center px-12">
         <img src={starsImage} alt="Stars" className="h-full" />
       </div>
+      <HeroStones />
       <Header />
       <div className="relative flex h-full flex-col items-center gap-8 py-8">
         <Button
@@ -41,6 +39,40 @@ export default function Hero() {
         <div className="w-full text-center uppercase text-white">
           Explore our universe
         </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroStones() {
+  return (
+    <div className="absolute flex h-full w-full items-center justify-center">
+      <div className="container relative h-full w-full">
+        <Stone
+          variant="1"
+          flipped
+          moving
+          height="h-28"
+          className="absolute left-40 top-32"
+        />
+        <Stone
+          variant="3"
+          moving
+          height="h-14"
+          className="absolute right-16 top-40"
+        />
+        <Stone
+          variant="2"
+          moving
+          height="h-36"
+          className="absolute bottom-14 left-0"
+        />
+        <Stone
+          variant="1"
+          moving
+          height="h-24"
+          className="absolute bottom-0 right-32"
+        />
       </div>
     </div>
   );
