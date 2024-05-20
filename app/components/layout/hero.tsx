@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="relative flex h-full flex-col items-center gap-8 py-8">
         <Button
           variant="none"
-          className="group relative bg-[#F3C138] p-6 uppercase ring-2 ring-inset ring-yellow-200"
+          className="bg-tertiary group relative p-6 uppercase ring-2 ring-inset ring-yellow-200"
           asChild
         >
           <Link to="/game-cup">
