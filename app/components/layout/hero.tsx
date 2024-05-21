@@ -1,9 +1,10 @@
 import starsImage from "~/assets/images/stars.png";
+import textLogoImage from "~/assets/images/text-logo.png";
 import Header from "~/components/layout/header";
 import { Button } from "~/components/ui/button";
-import textLogoImage from "~/assets/images/text-logo.png";
 import { Link } from "@remix-run/react";
 import Stone from "~/components/stone";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -30,12 +31,50 @@ export default function Hero() {
           </Link>
         </Button>
         <div className="relative">
-          <img
-            src={textLogoImage}
-            alt="Space Chunks"
-            className="h-96 w-full object-contain"
-          />
+          <div
+            className="relative h-96 w-full overflow-hidden"
+            style={{
+              WebkitMaskImage: `url(${textLogoImage})`,
+              maskImage: `url(${textLogoImage})`,
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+              maskSize: "contain",
+            }}
+          >
+            <motion.img
+              src={textLogoImage}
+              alt="Space Chunks"
+              className="relative z-10 h-full w-full object-contain"
+            />
+            <div
+              className="absolute inset-0 z-10 overflow-hidden"
+              style={{
+                WebkitMaskImage: `url(https://i.imgur.com/xyRRwOa.png)`,
+                maskImage: `url(https://i.imgur.com/xyRRwOa.png)`,
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskPosition: "center",
+              }}
+            >
+              <motion.div
+                className="pointer-events-none absolute inset-0 opacity-40 mix-blend-color-burn"
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{
+                  duration: 2.5,
+                }}
+                style={{
+                  background:
+                    "linear-gradient(120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 70%)",
+                }}
+              />
+            </div>
+          </div>
         </div>
+
         <div className="text-ethereal-normal w-full text-center uppercase">
           Explore our universe
         </div>
