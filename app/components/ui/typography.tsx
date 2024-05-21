@@ -141,7 +141,7 @@ export function TypographyLead({
     <p
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal text-xl font-light",
+        "text-mystical-normal dark:text-ethereal-normal text-xl font-normal",
         className,
       )}
     >
