@@ -68,6 +68,13 @@ function HeroStones() {
           className="absolute bottom-14 left-0"
         />
         <Stone
+          variant="2"
+          moving
+          flipped
+          height="h-16"
+          className="absolute bottom-28 left-96"
+        />
+        <Stone
           variant="1"
           moving
           height="h-24"
