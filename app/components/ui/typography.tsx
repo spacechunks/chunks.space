@@ -84,13 +84,17 @@ export const MotionTypographyP = motion(TypographyP);
 export function TypographyP({
   children,
   className,
+  topMargin = true,
   ...props
-}: TypographyProps) {
+}: TypographyProps & {
+  topMargin?: boolean;
+}) {
   return (
     <p
       {...props}
       className={cn(
-        "text-mystical-subtle dark:text-ethereal-subtle leading-7 [&:not(:first-child)]:mt-6",
+        "text-mystical-subtle dark:text-ethereal-subtle leading-7",
+        topMargin && "[&:not(:first-child)]:mt-6",
         className,
       )}
     >

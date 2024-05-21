@@ -6,6 +6,8 @@ export default function Section({
   className,
 }: PropsWithChildren<{ className?: string }>) {
   return (
-    <section className={cn("container px-12", className)}>{children}</section>
+    <section className={cn("container flex flex-col gap-12 px-12", className)}>
+      {children}
+    </section>
   );
 }
