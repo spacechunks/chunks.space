@@ -3,7 +3,7 @@ import { TypographyH3 } from "~/components/ui/typography";
 
 export default function ExperienceSection() {
   return (
-    <Section className="flex w-full items-center justify-around">
+    <Section className="w-full flex-row items-center justify-around">
       <TypographyH3>Proven Experience</TypographyH3>
       <div>Rewi</div>
       <div>Baltic</div>

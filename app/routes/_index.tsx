@@ -1,9 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
 import Hero from "~/components/layout/hero";
 import Footer from "~/components/layout/footer";
-import InfoSection from "~/sections/index/InfoSection";
-import ExperienceSection from "~/sections/index/ExperienceSection";
-import GameCupSection from "~/sections/index/GameCupSection";
+import InfoSection from "~/sections/index/info-section";
+import ExperienceSection from "~/sections/index/experience-section";
+import GameCupSection from "~/sections/index/game-cup-section";
+import TeamSection from "~/sections/index/team-section";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,6 +20,7 @@ export default function Index() {
       <InfoSection />
       <ExperienceSection />
       <GameCupSection />
+      <TeamSection />
       <Footer />
     </div>
   );
