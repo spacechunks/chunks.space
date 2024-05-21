@@ -44,7 +44,7 @@ export default function GameCupSection() {
             <TypographyLead className="text-ethereal-normal uppercase">
               Space Chunks Game Cup <b>Season 1</b>
             </TypographyLead>
-            <TypographyP className="text-ethereal-subtle">
+            <TypographyP className="text-ethereal-subtle [&:not(:first-child)]:mt-2">
               Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
               mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
               fringilla.
