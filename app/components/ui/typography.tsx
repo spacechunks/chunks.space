@@ -16,7 +16,7 @@ export function TypographyH1({
     <h1
       {...props}
       className={cn(
-        "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+        "text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
         className,
       )}
     >
@@ -34,7 +34,7 @@ export function TypographyH2({
     <h2
       {...props}
       className={cn(
-        "scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
+        "text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
         className,
       )}
     >
@@ -52,7 +52,7 @@ export function TypographyH3({
     <h3
       {...props}
       className={cn(
-        "scroll-m-20 text-2xl font-semibold tracking-tight",
+        "text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-2xl font-semibold tracking-tight",
         className,
       )}
     >
@@ -70,7 +70,7 @@ export function TypographyH4({
     <h4
       {...props}
       className={cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight",
+        "text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-xl font-semibold tracking-tight",
         className,
       )}
     >
@@ -89,7 +89,10 @@ export function TypographyP({
   return (
     <p
       {...props}
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn(
+        "text-mystical-subtle dark:text-ethereal-subtle leading-7 [&:not(:first-child)]:mt-6",
+        className,
+      )}
     >
       {children}
     </p>
@@ -135,7 +138,13 @@ export function TypographyLead({
   ...props
 }: TypographyProps) {
   return (
-    <p {...props} className={cn("text-xl text-muted-foreground", className)}>
+    <p
+      {...props}
+      className={cn(
+        "text-mystical-normal dark:text-ethereal-normal text-xl font-light",
+        className,
+      )}
+    >
       {children}
     </p>
   );
@@ -147,7 +156,13 @@ export function TypographyLarge({
   ...props
 }: TypographyProps) {
   return (
-    <div {...props} className={cn("text-lg font-semibold", className)}>
+    <div
+      {...props}
+      className={cn(
+        "text-mystical-normal dark:text-ethereal-normal text-lg font-semibold",
+        className,
+      )}
+    >
       {children}
     </div>
   );

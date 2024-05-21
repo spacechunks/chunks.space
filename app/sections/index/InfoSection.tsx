@@ -3,7 +3,7 @@ import Section from "~/components/layout/section";
 import {
   MotionTypographyP,
   TypographyH1,
-  TypographyLead,
+  TypographyLarge,
   TypographyP,
 } from "~/components/ui/typography";
 import { AnimatePresence, motion } from "framer-motion";
@@ -56,7 +56,7 @@ export default function InfoSection() {
           </AnimatePresence>
         </ul>
       </div>
-      <div className="h-full w-full rounded-lg bg-gray-300"></div>
+      <div className="bg-wild-sand-100 h-full w-full rounded-lg"></div>
     </Section>
   );
 }
@@ -81,7 +81,7 @@ function Tab({
       {isActive && (
         <motion.span
           layoutId="bubble"
-          className="absolute inset-0 h-full rounded-lg bg-gray-100"
+          className="bg-wild-sand-50 absolute inset-0 h-full rounded-lg"
           transition={{
             type: "spring",
             bounce: 0.2,
@@ -90,7 +90,7 @@ function Tab({
         />
       )}
       <div className="relative h-full px-4 py-4">
-        <TypographyLead>{title}</TypographyLead>
+        <TypographyLarge>{title}</TypographyLarge>
         {isActive && (
           <MotionTypographyP
             layoutId="description"

@@ -37,12 +37,14 @@ export default function GameCupSection() {
           />
         </div>
         <div className="relative flex w-1/2 flex-col gap-4">
-          <TypographyH1 className="text-white">2 Weeks Challenge</TypographyH1>
+          <TypographyH1 className="text-ethereal-normal">
+            2 Weeks Challenge
+          </TypographyH1>
           <div>
-            <TypographyLead className="uppercase">
+            <TypographyLead className="text-ethereal-normal uppercase">
               Space Chunks Game Cup <b>Season 1</b>
             </TypographyLead>
-            <TypographyP className="text-gray-300">
+            <TypographyP className="text-ethereal-subtle">
               Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
               mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
               fringilla.
