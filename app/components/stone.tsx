@@ -12,16 +12,17 @@ const stoneVariants = {
 
 // Utility to generate random jitter values within a range
 // range from -4 to 4
-const generateRandomJitter = () => Math.random() * 10 - 5;
+const generateRandomJitter = (factor: number = 20) =>
+  Math.random() * (factor - factor / 2);
 
 // Function to generate the jitter array
-const createJitterArray = () => [
+const createJitterArray = (factor: number = 20) => [
   0,
-  generateRandomJitter(),
-  generateRandomJitter(),
+  generateRandomJitter(factor),
+  generateRandomJitter(factor),
   0,
-  generateRandomJitter(),
-  generateRandomJitter(),
+  generateRandomJitter(factor),
+  generateRandomJitter(factor),
   0,
 ];
 
@@ -42,8 +43,8 @@ export default function Stone({
 
   const jitterAnimation = {
     x: createJitterArray(),
-    y: createJitterArray(),
-    rotate: createJitterArray(),
+    y: createJitterArray(40),
+    rotate: createJitterArray(10),
     transition: {
       repeat: Infinity,
       repeatType: "mirror" as const,
