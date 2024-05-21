@@ -38,16 +38,20 @@ export default function Stone({
   moving?: boolean;
   className?: string;
 }) {
-  const duration = 3.25 + Math.random() * 1.5; // Duration between 3.5 and 5 seconds
+  const duration = 7.5 + Math.random() * 1.5; // Duration between 3.5 and 5 seconds
 
   const jitterAnimation = {
     x: createJitterArray(),
     y: createJitterArray(),
+    rotate: createJitterArray(),
     transition: {
       repeat: Infinity,
       repeatType: "mirror" as const,
       duration: duration,
       ease: "easeInOut",
+      rotate: {
+        duration: duration,
+      },
     },
   };
 

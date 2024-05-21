@@ -1,0 +1,64 @@
+import Section from "~/components/layout/section";
+import {
+  TypographyH1,
+  TypographyLead,
+  TypographyP,
+} from "~/components/ui/typography";
+import { Button } from "~/components/ui/button";
+import gameCupImage from "~/assets/images/game-cup.png";
+import { motion } from "framer-motion";
+
+const cupVariants = {
+  visible: {
+    opacity: 1,
+    rotate: [-2, 2, -2],
+    transition: {
+      repeatType: "mirror" as const,
+      ease: "easeInOut",
+      duration: 5.0,
+      delay: 0.2,
+      repeat: Infinity,
+    },
+  },
+};
+
+export default function GameCupSection() {
+  return (
+    <Section>
+      <div className="relative flex justify-end rounded-lg bg-[#20143C] px-12 py-12">
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-[#FF8A00] to-[#FFC700]/0 opacity-30" />
+        <div className="absolute left-0 top-1/2 h-auto w-1/2 max-w-[30rem] -translate-y-1/2">
+          <motion.img
+            src={gameCupImage}
+            alt="Game Cup"
+            className="h-full w-full"
+            variants={cupVariants}
+            whileInView="visible"
+          />
+        </div>
+        <div className="relative flex w-1/2 flex-col gap-4">
+          <TypographyH1 className="text-white">2 Weeks Challenge</TypographyH1>
+          <div>
+            <TypographyLead className="uppercase">
+              Space Chunks Game Cup <b>Season 1</b>
+            </TypographyLead>
+            <TypographyP className="text-gray-300">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
+              mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
+              fringilla.
+            </TypographyP>
+          </div>
+          <div>
+            <Button
+              variant="tertiary"
+              size="lg"
+              className="rounded-full px-12 uppercase"
+            >
+              Read more
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}

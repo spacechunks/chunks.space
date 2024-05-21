@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "~/lib/utils";
+import { motion } from "framer-motion";
 
 type TypographyProps = {
   children: React.ReactNode;
@@ -77,6 +78,8 @@ export function TypographyH4({
     </h4>
   );
 }
+
+export const MotionTypographyP = motion(TypographyP);
 
 export function TypographyP({
   children,
