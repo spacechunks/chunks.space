@@ -14,32 +14,32 @@ const teamMembers = [
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "EgyBoy",
+    name: "Fllip",
     role: "S TIER DEVELOPER",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "EgyBoy",
+    name: "Freggyy",
     role: "S TIER DEVELOPER",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "EgyBoy",
+    name: "D151l",
     role: "S TIER DEVELOPER",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "EgyBoy",
+    name: "MrManHD",
     role: "S TIER DEVELOPER",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "EgyBoy",
+    name: "daviidoo",
     role: "S TIER DEVELOPER",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "EgyBoy",
+    name: "Wetterbericht",
     role: "S TIER DEVELOPER",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
@@ -59,7 +59,11 @@ export default function TeamSection() {
         {teamMembers.map((member) => (
           <li key={member.name}>
             <div className="bg-wild-sand-50 relative flex flex-col items-center gap-2 rounded-lg p-8">
-              <div className="bg-wild-sand-950 absolute -top-10 h-16 w-16 rounded-lg"></div>
+              <img
+                className="absolute -top-10 h-16 w-16 rounded-lg"
+                src={`https://cravatar.eu/helmavatar/${member.name}`}
+                alt={member.name}
+              />
               <TypographyH4>{member.name}</TypographyH4>
               <TypographySmall>{member.role}</TypographySmall>
               <TypographyP className="text-center" topMargin={false}>
