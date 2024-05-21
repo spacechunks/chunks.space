@@ -61,7 +61,7 @@ export default function TeamSection() {
             <div className="bg-wild-sand-50 relative flex flex-col items-center gap-2 rounded-lg p-8">
               <img
                 className="absolute -top-10 h-16 w-16 rounded-lg"
-                src={`https://cravatar.eu/helmavatar/${member.name}`}
+                src={`https://cravatar.eu/helmavatar/${member.name}/128`}
                 alt={member.name}
               />
               <TypographyH4>{member.name}</TypographyH4>
