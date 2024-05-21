@@ -51,11 +51,7 @@ export default function GameCupSection() {
             </TypographyP>
           </div>
           <div>
-            <Button
-              variant="tertiary"
-              size="lg"
-              className="rounded-full px-12 uppercase"
-            >
+            <Button variant="tertiary" size="lg" className="px-12 uppercase">
               Read more
             </Button>
           </div>
