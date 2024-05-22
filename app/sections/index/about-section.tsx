@@ -6,8 +6,14 @@ import {
   TypographyLarge,
   TypographyP,
 } from "~/components/ui/typography";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "~/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
 
 const tabs = [
   {
@@ -31,7 +37,7 @@ const tabs = [
 ];
 
 export default function AboutSection() {
-  let [activeTab, setActiveTab] = useState("creative");
+  let [activeTab, setActiveTab] = useState(tabs[0].id);
   return (
     <Section id="about" className="grid grid-cols-1 gap-12 md:grid-cols-2">
       <div className="flex flex-col gap-4">
@@ -42,19 +48,28 @@ export default function AboutSection() {
           mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
           tellus..
         </TypographyP>
-        <ul className="flex flex-col gap-4">
-          <AnimatePresence initial={false}>
-            {tabs.map((tab) => (
-              <Tab
-                key={tab.id}
-                title={tab.title}
-                description={tab.description}
-                isActive={activeTab === tab.id}
-                onClick={() => setActiveTab(tab.id)}
-              />
-            ))}
-          </AnimatePresence>
-        </ul>
+
+        <Accordion
+          type="single"
+          value={activeTab}
+          onValueChange={(value) => {
+            setActiveTab(value);
+          }}
+          className="w-full"
+        >
+          {/*<AccordionItem value="item-1">*/}
+          {/*  <AccordionTrigger>Is it accessible?</AccordionTrigger>*/}
+          {/*  <AccordionContent>*/}
+          {/*    Yes. It adheres to the WAI-ARIA design pattern.*/}
+          {/*  </AccordionContent>*/}
+          {/*</AccordionItem>*/}
+          {tabs.map((tab) => (
+            <AccordionItem key={tab.id} value={tab.id}>
+              <AccordionTrigger>{tab.title}</AccordionTrigger>
+              <AccordionContent>{tab.description}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
       <div className="bg-wild-sand-100 h-full w-full rounded-lg"></div>
     </Section>
