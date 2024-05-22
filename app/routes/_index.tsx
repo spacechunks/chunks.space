@@ -6,6 +6,7 @@ import ExperienceSection from "~/sections/index/experience-section";
 import GameCupSection from "~/sections/index/game-cup-section";
 import TeamSection from "~/sections/index/team-section";
 import FaqSection from "~/sections/index/faq-section";
+import ContactSection from "~/sections/index/contact-section";
 
 export const meta: MetaFunction = () => {
   return [
@@ -23,6 +24,7 @@ export default function Index() {
       <GameCupSection />
       <TeamSection />
       <FaqSection />
+      <ContactSection />
       <Footer />
     </div>
   );
