@@ -76,7 +76,7 @@ export default function Footer() {
               </TypographySmall>
               {workingOnLinks.map((link) => (
                 <li key={link.title}>
-                  <a href={link.href}>
+                  <a href={link.href} target="_blank">
                     <TypographySmall className="font-bold">
                       {link.title}
                     </TypographySmall>
