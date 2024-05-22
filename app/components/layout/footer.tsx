@@ -45,13 +45,13 @@ export default function Footer() {
   return (
     <footer className="bg-[#1D182C]">
       <div className="h-12 rounded-b-full bg-white" />
-      <Section className="flex flex-row justify-between py-16">
-        <div className="flex justify-between gap-16">
-          <img
-            src={textLogo}
-            alt="Space Chunks Logo"
-            className="h-full max-h-[12rem] w-auto"
-          />
+      <Section className="flex-row justify-between py-16">
+        <img
+          src={textLogo}
+          alt="Space Chunks Logo"
+          className="h-full max-h-[12rem] w-auto object-cover"
+        />
+        <div className="flex gap-16">
           <div className="text-ethereal-subtle flex gap-8 uppercase">
             <ul className="flex flex-col gap-2">
               <TypographySmall className="text-ethereal-normal font-bold">
@@ -86,20 +86,22 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div>
-          <DiscordButton />
-        </div>
       </Section>
       <div className="bg-[#171323] uppercase">
         <Section>
-          <div className="flex flex-col gap-2">
-            <TypographySmall className="text-ethereal-subtle font-bold">
-              &copy; {currentYear} Space Chunks. All rights reserved.
-            </TypographySmall>
+          <div className="flex justify-between">
+            <div className="flex flex-col gap-2">
+              <TypographySmall className="text-ethereal-subtle font-bold">
+                &copy; {currentYear} Space Chunks. All rights reserved.
+              </TypographySmall>
 
-            <TypographySmall className="text-mystical-subtle font-bold">
-              We are in no way affiliated with or endorsed by Mojang, AB.
-            </TypographySmall>
+              <TypographySmall className="text-mystical-subtle font-bold">
+                We are in no way affiliated with or endorsed by Mojang, AB.
+              </TypographySmall>
+            </div>
+            <div>
+              <DiscordButton />
+            </div>
           </div>
           <div className="flex justify-between">
             <div className="flex gap-12">
