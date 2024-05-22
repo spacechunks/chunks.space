@@ -48,7 +48,7 @@ const teamMembers = [
 export default function TeamSection() {
   return (
     <Section id="team" className="gap-20">
-      <div className="mx-auto flex w-full max-w-2xl flex-col gap-4 text-center">
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 text-center">
         <TypographyH1>Our Team</TypographyH1>
         <TypographyLead>
           Meet the team behind the scenes of Space Chunks! We are a group of
@@ -56,24 +56,25 @@ export default function TeamSection() {
           making the best experience for you.
         </TypographyLead>
       </div>
-      <ul className="flex flex-wrap items-center justify-center gap-8 gap-y-28 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <ul className="flex w-full flex-wrap items-center justify-center gap-8 gap-y-28">
         {teamMembers.map((member) => (
-          <li key={member.name}>
-            <div className="bg-wild-sand-50 relative flex h-52 flex-col items-center gap-2 rounded-lg p-8">
-              <img
-                className="absolute -top-10 h-16 w-16 rounded-lg"
-                src={`https://cravatar.eu/helmavatar/${member.name}/128`}
-                alt={member.name}
-              />
-              <TypographyH4>{member.name}</TypographyH4>
-              <TypographySmall>{member.role}</TypographySmall>
-              <TypographyP
-                className="max-w-[18rem] text-center"
-                topMargin={false}
-              >
-                {member.text}
-              </TypographyP>
-            </div>
+          <li
+            key={member.name}
+            className="bg-wild-sand-50 relative mx-auto flex h-52 flex-col items-center gap-2 rounded-lg p-8"
+          >
+            <img
+              className="absolute -top-10 h-16 w-16 rounded-lg"
+              src={`https://cravatar.eu/helmavatar/${member.name}/128`}
+              alt={member.name}
+            />
+            <TypographyH4>{member.name}</TypographyH4>
+            <TypographySmall>{member.role}</TypographySmall>
+            <TypographyP
+              className="max-w-[18rem] text-center"
+              topMargin={false}
+            >
+              {member.text}
+            </TypographyP>
           </li>
         ))}
       </ul>
