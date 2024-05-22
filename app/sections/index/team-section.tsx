@@ -51,8 +51,9 @@ export default function TeamSection() {
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-4 text-center">
         <TypographyH1>Our Team</TypographyH1>
         <TypographyLead>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
-          Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.
+          Meet the team behind the scenes of Space Chunks! We are a group of
+          passionate designers, developers, and creators who are dedicated to
+          making the best experience for you.
         </TypographyLead>
       </div>
       <ul className="grid grid-cols-1 justify-items-center gap-8 gap-y-28 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
