@@ -55,7 +55,7 @@ export default function TeamSection() {
           Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.
         </TypographyLead>
       </div>
-      <ul className="grid grid-cols-4 gap-8 gap-y-28">
+      <ul className="grid grid-cols-1 justify-items-center gap-8 gap-y-28 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {teamMembers.map((member) => (
           <li key={member.name}>
             <div className="bg-wild-sand-50 relative flex flex-col items-center gap-2 rounded-lg p-8">
