@@ -47,7 +47,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <Section className="gap-20">
+    <Section id="team" className="gap-20">
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-4 text-center">
         <TypographyH1>Our Team</TypographyH1>
         <TypographyLead>

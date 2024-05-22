@@ -94,7 +94,7 @@ function HeroStones() {
           flipped
           moving
           height="h-28"
-          className="absolute left-40 top-32"
+          className="absolute left-40 top-24"
         />
         <Stone
           variant="3"
@@ -106,7 +106,7 @@ function HeroStones() {
           variant="2"
           moving
           height="h-36"
-          className="absolute bottom-14 left-0"
+          className="absolute bottom-32 left-12"
         />
         <Stone
           variant="2"
@@ -119,7 +119,7 @@ function HeroStones() {
           variant="1"
           moving
           height="h-24"
-          className="absolute bottom-0 right-32"
+          className="absolute bottom-12 right-32"
         />
       </div>
     </div>

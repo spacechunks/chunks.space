@@ -3,7 +3,7 @@ import { TypographyH1, TypographyLead } from "~/components/ui/typography";
 
 export default function ContactSection() {
   return (
-    <Section>
+    <Section id="contact">
       <div className="flex w-full max-w-2xl flex-col gap-4">
         <TypographyH1>Contact us</TypographyH1>
         <TypographyLead>

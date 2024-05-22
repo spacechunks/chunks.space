@@ -7,11 +7,11 @@ import DiscordIcon from "~/components/icons/discord";
 import GithubIcon from "~/components/icons/github";
 
 const links = [
-  { name: "About", to: "#about" },
-  { name: "Game Cup", to: "#game-cup" },
-  { name: "Team", to: "#team" },
-  { name: "FAQ", to: "#faq" },
-  { name: "Contact", to: "#contact" },
+  { name: "About", to: "/#about" },
+  { name: "Game Cup", to: "/#game-cup" },
+  { name: "Team", to: "/#team" },
+  { name: "FAQ", to: "/#faq" },
+  { name: "Contact", to: "/#contact" },
 ];
 
 export default function Header() {
@@ -22,7 +22,7 @@ export default function Header() {
       <div className="flex items-center gap-10">
         <img className="h-12 w-auto" src={logoImage} alt="logo" />
         {links.map((link) => (
-          <Link to={link.to} key={link.name}>
+          <Link key={link.name} to={link.to}>
             {link.name}
           </Link>
         ))}

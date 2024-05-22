@@ -30,10 +30,10 @@ const tabs = [
   },
 ];
 
-export default function InfoSection() {
+export default function AboutSection() {
   let [activeTab, setActiveTab] = useState("creative");
   return (
-    <Section className="grid grid-cols-1 gap-12 md:grid-cols-2">
+    <Section id="about" className="grid grid-cols-1 gap-12 md:grid-cols-2">
       <div className="flex flex-col gap-4">
         <TypographyH1>What is Space Chunks?</TypographyH1>
         <TypographyP>
