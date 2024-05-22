@@ -18,7 +18,7 @@ export default function Header() {
   const data = useRouteLoaderData<typeof rootLoader>("root");
 
   return (
-    <header className="container flex items-center justify-between px-12 text-white">
+    <header className="container hidden items-center justify-between px-12 text-white md:flex">
       <div className="flex items-center gap-10">
         <img className="h-12 w-auto" src={logoImage} alt="logo" />
         {links.map((link) => (

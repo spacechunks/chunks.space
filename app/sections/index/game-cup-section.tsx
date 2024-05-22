@@ -25,9 +25,9 @@ const cupVariants = {
 export default function GameCupSection() {
   return (
     <Section>
-      <div className="relative flex justify-end rounded-lg bg-[#20143C] px-12 py-12">
+      <div className="relative flex flex-col justify-end rounded-lg bg-[#20143C] px-12 py-12 md:flex-row">
         <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-[#FF8A00] to-[#FFC700]/0 opacity-30" />
-        <div className="absolute left-0 top-1/2 h-auto w-1/2 max-w-[30rem] -translate-y-1/2">
+        <div className="-top-32 h-auto max-w-[30rem] md:absolute md:left-0 md:top-1/2 md:w-1/2 md:-translate-y-1/2">
           <motion.img
             src={gameCupImage}
             alt="Game Cup"
@@ -36,7 +36,7 @@ export default function GameCupSection() {
             whileInView="visible"
           />
         </div>
-        <div className="relative flex w-1/2 flex-col gap-4">
+        <div className="relative flex flex-col gap-4 md:w-1/2">
           <TypographyH1 className="text-ethereal-normal">
             2 Weeks Challenge
           </TypographyH1>
