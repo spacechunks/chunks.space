@@ -2,7 +2,7 @@ import { LRUCache } from "lru-cache";
 import { Cache, CacheEntry, cachified, totalTtl } from "@epic-web/cachified";
 import { discordGuildSchema } from "~/service/discord.schema";
 
-const GUILD_CACHE_TTL = 15 * 60 * 1000; // 15 minutes
+const GUILD_CACHE_TTL = 60 * 1000; // 1 minute
 
 /* lru cache is not part of this package but a simple non-persistent cache */
 const lruInstance = new LRUCache<string, CacheEntry>({ max: 1000 });
