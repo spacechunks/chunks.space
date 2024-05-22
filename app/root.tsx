@@ -1,4 +1,5 @@
 import {
+  defer,
   Links,
   Meta,
   Outlet,
@@ -6,11 +7,31 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css?url";
-import {LinksFunction} from "@remix-run/node";
+import { LinksFunction } from "@remix-run/node";
+import { getDiscordGuildInfo } from "~/service/discord.server";
 
 export const links: LinksFunction = () => [
-    { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: stylesheet },
+  { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "32x32",
+    href: "/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon-16x16.png",
+  },
+  { rel: "manifest", href: "/site.webmanifest" },
 ];
+
+export async function loader() {
+  const guildData = getDiscordGuildInfo();
+  return defer({ guildData });
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -11,19 +11,23 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@epic-web/cachified": "^5.2.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
+    "@tabler/icons-react": "^3.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.4",
     "isbot": "^4.1.0",
+    "lru-cache": "^10.2.2",
     "lucide-react": "^0.378.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",

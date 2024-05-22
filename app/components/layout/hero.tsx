@@ -1,5 +1,5 @@
-import starsImage from "~/assets/images/stars.png";
 import textLogoImage from "~/assets/images/text-logo.png";
+import starsImage from "~/assets/images/stars.png";
 import Header from "~/components/layout/header";
 import { Button } from "~/components/ui/button";
 import { Link } from "@remix-run/react";
@@ -9,14 +9,16 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <div className="relative h-full w-full rounded-b-3xl bg-[#171023] py-8">
-      <div className="absolute top-0 z-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
-      <div className="absolute top-0 z-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
+      <div className="relative z-50">
+        <Header />
+      </div>
+      <div className="absolute top-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
+      <div className="absolute top-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
       <div className="absolute bottom-12 flex items-center justify-center px-12">
         <img src={starsImage} alt="Stars" className="h-full" />
       </div>
       <HeroStones />
-      <Header />
-      <div className="relative flex h-full flex-col items-center gap-8 py-8">
+      <div className="relative z-10 flex h-full flex-col items-center gap-8 py-8">
         <Button
           variant="none"
           className="group relative bg-tertiary p-6 uppercase ring-2 ring-inset ring-yellow-200"
