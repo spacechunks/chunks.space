@@ -21,7 +21,7 @@ const teamMembers = [
   {
     name: "Freggyy",
     role: "S TIER DEVELOPER",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut etdfgdfgdfgdfgdfgdfgdfg",
   },
   {
     name: "D151l",
@@ -56,10 +56,10 @@ export default function TeamSection() {
           making the best experience for you.
         </TypographyLead>
       </div>
-      <ul className="grid grid-cols-1 justify-items-center gap-8 gap-y-28 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <ul className="flex flex-wrap items-center justify-center gap-8 gap-y-28 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {teamMembers.map((member) => (
           <li key={member.name}>
-            <div className="bg-wild-sand-50 relative flex flex-col items-center gap-2 rounded-lg p-8">
+            <div className="bg-wild-sand-50 relative flex h-52 flex-col items-center gap-2 rounded-lg p-8">
               <img
                 className="absolute -top-10 h-16 w-16 rounded-lg"
                 src={`https://cravatar.eu/helmavatar/${member.name}/128`}
@@ -67,7 +67,10 @@ export default function TeamSection() {
               />
               <TypographyH4>{member.name}</TypographyH4>
               <TypographySmall>{member.role}</TypographySmall>
-              <TypographyP className="text-center" topMargin={false}>
+              <TypographyP
+                className="max-w-[18rem] text-center"
+                topMargin={false}
+              >
                 {member.text}
               </TypographyP>
             </div>
