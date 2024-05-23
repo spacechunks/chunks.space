@@ -52,7 +52,7 @@ export function TypographyH3({
     <h3
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-2xl font-semibold tracking-tight",
+        "text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-2xl font-bold tracking-tight",
         className,
       )}
     >
