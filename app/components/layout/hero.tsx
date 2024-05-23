@@ -7,6 +7,7 @@ import Stone from "~/components/stone";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import * as React from "react";
+import SmoothLink from "~/components/smooth-link";
 
 export default function Hero() {
   return (
@@ -79,23 +80,18 @@ export default function Hero() {
           </div>
         </div>
 
-        <Button
-          variant="none"
-          className="text-ethereal-normal group flex flex-col gap-2"
-          onClick={() => {
-            document.querySelector("#about")?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }}
+        <SmoothLink
+          to="/#about"
+          className="text-ethereal-normal group flex flex-col items-center gap-2"
         >
-          <div className="w-full text-center uppercase">
+          <div className="w-full text-center font-semibold uppercase">
             Explore our universe
           </div>
 
           <span>
             <ChevronDown className="h-6 w-6 shrink-0 transition-transform duration-200" />
           </span>
-        </Button>
+        </SmoothLink>
       </div>
     </div>
   );

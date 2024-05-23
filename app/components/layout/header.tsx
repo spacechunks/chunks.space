@@ -1,7 +1,7 @@
-import { Link } from "@remix-run/react";
 import logoImage from "~/assets/images/logo.png";
 import GithubIcon from "~/components/icons/github";
 import DiscordButton from "~/components/ui/discord-button";
+import SmoothLink from "~/components/smooth-link";
 
 const links = [
   { name: "About", to: "/#about" },
@@ -17,9 +17,9 @@ export default function Header() {
       <div className="flex items-center gap-10">
         <img className="h-12 w-auto" src={logoImage} alt="logo" />
         {links.map((link) => (
-          <Link key={link.name} to={link.to}>
+          <SmoothLink key={link.name} to={link.to}>
             {link.name}
-          </Link>
+          </SmoothLink>
         ))}
       </div>
       <div className="flex items-center gap-4">
