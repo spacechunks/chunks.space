@@ -82,7 +82,7 @@ export default function Hero() {
 
         <SmoothLink
           to="/#about"
-          className="text-ethereal-normal group flex flex-col items-center gap-2"
+          className="text-ethereal-normal group flex cursor-pointer flex-col items-center gap-2"
         >
           <div className="w-full text-center font-semibold uppercase">
             Explore our universe
