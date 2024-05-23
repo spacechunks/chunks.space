@@ -5,6 +5,8 @@ import { Button } from "~/components/ui/button";
 import { Link } from "@remix-run/react";
 import Stone from "~/components/stone";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import * as React from "react";
 
 export default function Hero() {
   return (
@@ -77,9 +79,23 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="text-ethereal-normal w-full text-center uppercase">
-          Explore our universe
-        </div>
+        <Button
+          variant="none"
+          className="text-ethereal-normal group flex flex-col gap-2"
+          onClick={() => {
+            document.querySelector("#about")?.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
+        >
+          <div className="w-full text-center uppercase">
+            Explore our universe
+          </div>
+
+          <span>
+            <ChevronDown className="h-6 w-6 shrink-0 transition-transform duration-200" />
+          </span>
+        </Button>
       </div>
     </div>
   );
