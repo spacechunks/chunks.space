@@ -113,7 +113,7 @@ function HeroStones() {
           moving
           flipped
           height="h-16"
-          className="absolute bottom-28 left-96"
+          className="absolute bottom-28 left-96 hidden xl:block"
         />
         <Stone
           variant="1"
