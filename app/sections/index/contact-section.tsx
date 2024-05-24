@@ -10,6 +10,7 @@ import { Label } from "~/components/ui/label";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { Checkbox } from "~/components/ui/checkbox";
+import logoImage from "~/assets/images/logo.png";
 
 export default function ContactSection() {
   return (
@@ -21,7 +22,12 @@ export default function ContactSection() {
           hear from you! Feel free to reach out to us!
         </TypographyLead>
       </div>
-      <Form className="bg-wild-sand-100 flex flex-col gap-8 rounded-lg p-12">
+      <Form className="bg-wild-sand-100 relative flex flex-col gap-8 rounded-lg p-12">
+        <img
+          src={logoImage}
+          alt="Space Chunks"
+          className="absolute -top-40 right-0 h-56 w-auto"
+        />
         <TypographyH3>Let's chat! Send us a message.</TypographyH3>
         <div className="flex flex-col gap-4">
           <div>
@@ -46,11 +52,14 @@ export default function ContactSection() {
               className="min-h-40 resize-none"
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-2">
             <Checkbox />
             <Label>
               I have read and understood the{" "}
-              <Link to="privacy">Privacy Policy</Link> and agree to its terms.
+              <Link to="privacy" className="font-bold hover:underline">
+                Privacy Policy
+              </Link>{" "}
+              and agree to its terms.
             </Label>
           </div>
         </div>

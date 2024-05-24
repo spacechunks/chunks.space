@@ -20,9 +20,9 @@ export default function SmoothLink({
 
   if (isCurrentPage && !!toPath) {
     return (
-      <a
-        className={props.className}
+      <Link
         {...props}
+        to={toLinkWithoutHash}
         onClick={(event) => {
           const element = document.getElementById(toPath.hash);
           if (!element) {
@@ -47,11 +47,13 @@ export default function SmoothLink({
             event.preventDefault();
           }
 
-          element.scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth" });
+          }, 10);
         }}
       >
         {children}
-      </a>
+      </Link>
     );
   }
 
