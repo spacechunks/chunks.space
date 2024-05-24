@@ -34,7 +34,7 @@ const teamMembers = [
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
-    name: "daviidoo",
+    name: "daviidooo",
     role: "Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
