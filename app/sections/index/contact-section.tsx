@@ -6,13 +6,31 @@ import {
 } from "~/components/ui/typography";
 import { Button } from "~/components/ui/button";
 import { Form, Link } from "@remix-run/react";
-import { Label } from "~/components/ui/label";
-import { Input } from "~/components/ui/input";
-import { Textarea } from "~/components/ui/textarea";
-import { Checkbox } from "~/components/ui/checkbox";
 import logoImage from "~/assets/images/logo.png";
+import { getFormProps, getInputProps, useForm } from "@conform-to/react";
+import { CheckboxField, Field, TextareaField } from "~/components/forms";
+import { z } from "zod";
+import { getZodConstraint, parseWithZod } from "@conform-to/zod";
+
+const contactSchema = z.object({
+  subject: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+  message: z.string(),
+  privacy: z.boolean(),
+});
 
 export default function ContactSection() {
+  const [form, fields] = useForm({
+    id: "contact-form",
+    constraint: getZodConstraint(contactSchema),
+    // lastResult: lastResult,
+    onValidate({ formData }) {
+      return parseWithZod(formData, { schema: contactSchema });
+    },
+    shouldRevalidate: "onBlur",
+  });
+
   return (
     <Section id="contact">
       <div className="flex w-full max-w-2xl flex-col gap-4">
@@ -22,46 +40,78 @@ export default function ContactSection() {
           hear from you! Feel free to reach out to us!
         </TypographyLead>
       </div>
-      <Form className="bg-wild-sand-100 relative flex flex-col gap-8 rounded-lg p-12">
+      <Form
+        className="bg-wild-sand-100 relative flex flex-col gap-8 rounded-lg p-12"
+        method="post"
+        {...getFormProps(form)}
+      >
         <img
           src={logoImage}
           alt="Space Chunks"
           className="absolute -top-40 right-0 h-56 w-auto"
         />
         <TypographyH3>Let's chat! Send us a message.</TypographyH3>
-        <div className="flex flex-col gap-4">
-          <div>
-            <Label>Subject</Label>
-            <Input name="subject" placeholder="General Inquries" />
-          </div>
+        <div className="flex flex-col">
+          <Field
+            labelProps={{
+              children: "Subject",
+            }}
+            inputProps={{
+              ...getInputProps(fields.subject, { type: "text" }),
+              placeholder: "General Inquries",
+            }}
+            errors={fields.subject.errors}
+          />
+
           <div className="flex flex-col gap-4 md:flex-row">
-            <div className="w-full">
-              <Label>Name</Label>
-              <Input name="name" placeholder="Your Name" />
-            </div>
-            <div className="w-full">
-              <Label>E-Mail</Label>
-              <Input name="email" type="email" placeholder="name@example.com" />
-            </div>
-          </div>
-          <div className="w-full">
-            <Label>Message</Label>
-            <Textarea
-              name="message"
-              placeholder="Your message"
-              className="min-h-40 resize-none"
+            <Field
+              className="w-full"
+              labelProps={{
+                children: "Name",
+              }}
+              inputProps={{
+                ...getInputProps(fields.name, { type: "text" }),
+                placeholder: "Your Name",
+              }}
+              errors={fields.name.errors}
+            />
+
+            <Field
+              className="w-full"
+              labelProps={{
+                children: "E-Mail",
+              }}
+              inputProps={{
+                ...getInputProps(fields.email, { type: "email" }),
+                placeholder: "test@example.com",
+              }}
+              errors={fields.email.errors}
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Checkbox />
-            <Label>
-              I have read and understood the{" "}
-              <Link to="privacy" className="font-bold hover:underline">
-                Privacy Policy
-              </Link>{" "}
-              and agree to its terms.
-            </Label>
-          </div>
+          <TextareaField
+            labelProps={{ children: "Message" }}
+            textareaProps={{
+              ...getInputProps(fields.message, { type: "text" }),
+              placeholder: "Your message",
+              className: "min-h-40 resize-none",
+            }}
+            errors={fields.message.errors}
+          />
+          <CheckboxField
+            labelProps={{
+              children: (
+                <>
+                  I have read and understood the{" "}
+                  <Link to="privacy" className="font-bold hover:underline">
+                    Privacy Policy
+                  </Link>{" "}
+                  and agree to its terms.
+                </>
+              ),
+            }}
+            buttonProps={getInputProps(fields.privacy, { type: "checkbox" })}
+            errors={fields.privacy.errors}
+          />
         </div>
         <div>
           <Button variant="secondary" size="lg" className="px-16 uppercase">
