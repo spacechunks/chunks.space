@@ -20,9 +20,8 @@ export default function SmoothLink({
 
   if (isCurrentPage && !!toPath) {
     return (
-      <Link
+      <a
         {...props}
-        to={toLinkWithoutHash}
         onClick={(event) => {
           const element = document.getElementById(toPath.hash);
           if (!element) {
@@ -53,7 +52,7 @@ export default function SmoothLink({
         }}
       >
         {children}
-      </Link>
+      </a>
     );
   }
 
