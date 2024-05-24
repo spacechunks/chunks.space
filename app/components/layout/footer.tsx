@@ -45,7 +45,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1D182C]">
       <div className="h-12 rounded-b-full bg-white" />
-      <Section className="flex-row justify-between py-16">
+      <Section className="justify-between py-16 md:flex-row">
         <img
           src={textLogo}
           alt="Space Chunks Logo"
@@ -89,7 +89,7 @@ export default function Footer() {
       </Section>
       <div className="bg-[#171323] uppercase">
         <Section>
-          <div className="flex justify-between">
+          <div className="flex flex-col justify-between gap-4 md:flex-row">
             <div className="flex flex-col gap-2">
               <TypographySmall className="text-ethereal-subtle font-bold">
                 &copy; {currentYear} Space Chunks. All rights reserved.
@@ -99,12 +99,12 @@ export default function Footer() {
                 We are in no way affiliated with or endorsed by Mojang, AB.
               </TypographySmall>
             </div>
-            <div>
+            <div className="order-first flex w-full items-center justify-between gap-4 md:order-none md:w-auto">
               <DiscordButton />
             </div>
           </div>
           <div className="flex justify-between">
-            <div className="flex gap-12">
+            <div className="flex flex-col gap-4 md:flex-row md:gap-12">
               <Link to="privacy">
                 <TypographySmall className="text-ethereal-subtle font-bold">
                   Privacy Policy

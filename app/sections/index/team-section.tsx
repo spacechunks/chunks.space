@@ -10,37 +10,37 @@ import {
 const teamMembers = [
   {
     name: "EgyBoy",
-    role: "S TIER DEVELOPER",
+    role: "Lead Designer & Model Artist",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
     name: "Fllip",
-    role: "S TIER DEVELOPER",
+    role: "Lead Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
     name: "Freggyy",
-    role: "S TIER DEVELOPER",
+    role: "Lead Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut etdfgdfgdfgdfgdfgdfgdfg",
   },
   {
     name: "D151l",
-    role: "S TIER DEVELOPER",
+    role: "Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
     name: "MrManHD",
-    role: "S TIER DEVELOPER",
+    role: "Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
     name: "daviidoo",
-    role: "S TIER DEVELOPER",
+    role: "Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
   {
     name: "Wetterbericht",
-    role: "S TIER DEVELOPER",
+    role: "Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
   },
 ];
@@ -68,7 +68,9 @@ export default function TeamSection() {
               alt={member.name}
             />
             <TypographyH4>{member.name}</TypographyH4>
-            <TypographySmall>{member.role}</TypographySmall>
+            <TypographySmall className="uppercase">
+              {member.role}
+            </TypographySmall>
             <TypographyP
               className="max-w-[18rem] text-center"
               topMargin={false}

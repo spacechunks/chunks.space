@@ -24,13 +24,13 @@ export default function Hero() {
       <div className="relative z-10 flex h-full flex-col items-center gap-8 py-8">
         <Button
           variant="none"
-          className="group relative bg-tertiary p-6 uppercase ring-2 ring-inset ring-yellow-200"
+          className="group relative bg-tertiary p-4 uppercase ring-2 ring-inset ring-yellow-200 md:p-6"
           asChild
         >
           <Link to="/game-cup">
             <div className="absolute h-full w-full rounded-md bg-gradient-to-b from-white via-transparent to-transparent opacity-40 transition-opacity group-hover:opacity-100" />
             <div className="absolute h-full w-full rounded-md bg-[#F3C138] opacity-50 blur-xl transition-opacity group-hover:opacity-60" />
-            <div className="text-mystical-normal relative my-12">
+            <div className="text-mystical-normal relative my-12 text-xs md:text-sm">
               <b>Game cup season 1</b> Starting soon. <b>Read more</b>
             </div>
           </Link>

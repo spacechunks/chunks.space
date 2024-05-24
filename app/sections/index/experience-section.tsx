@@ -31,7 +31,7 @@ export default function ExperienceSection() {
       className="w-full flex-col items-center justify-between md:flex-row"
     >
       <TypographyH3 className="min-w-fit">Proven Experience</TypographyH3>
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full flex-col items-center justify-between gap-8 md:flex-row">
         {experience.map((item) => (
           <img
             key={item.name}
