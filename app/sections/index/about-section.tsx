@@ -39,8 +39,8 @@ const tabs = [
 export default function AboutSection() {
   let [activeTab, setActiveTab] = useState(tabs[0].id);
   return (
-    <Section id="about" className="grid grid-cols-1 gap-12 md:grid-cols-2">
-      <div className="flex flex-col gap-4">
+    <Section id="about" className="flex flex-col md:flex-row">
+      <div className="flex flex-1 flex-col gap-4">
         <TypographyH1>What is Space Chunks?</TypographyH1>
         <TypographyP>
           Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
@@ -57,12 +57,6 @@ export default function AboutSection() {
           }}
           className="w-full"
         >
-          {/*<AccordionItem value="item-1">*/}
-          {/*  <AccordionTrigger>Is it accessible?</AccordionTrigger>*/}
-          {/*  <AccordionContent>*/}
-          {/*    Yes. It adheres to the WAI-ARIA design pattern.*/}
-          {/*  </AccordionContent>*/}
-          {/*</AccordionItem>*/}
           {tabs.map((tab) => (
             <AccordionItem key={tab.id} value={tab.id}>
               <AccordionTrigger>{tab.title}</AccordionTrigger>
@@ -71,7 +65,7 @@ export default function AboutSection() {
           ))}
         </Accordion>
       </div>
-      <div className="bg-wild-sand-100 h-full w-full rounded-lg"></div>
+      <div className="bg-wild-sand-100 min-h-64 flex-1 rounded-lg"></div>
     </Section>
   );
 }
