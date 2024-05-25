@@ -45,9 +45,9 @@ export default function GameCupSection() {
               Space Chunks Game Cup <b>Season 1</b>
             </TypographyLead>
             <TypographyP className="text-ethereal-subtle [&:not(:first-child)]:mt-2">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
-              mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
-              fringilla.
+              We challenge other creators to build, program, and design a game
+              in 2 weeks. The winner will receive a prize and the event will be
+              streamed live.
             </TypographyP>
           </div>
           <div>
