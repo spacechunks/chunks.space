@@ -1,16 +1,22 @@
 import logoImage from "~/assets/images/logo.png";
 import GithubIcon from "~/components/icons/github";
 import DiscordButton from "~/components/ui/discord-button";
-import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger,} from "~/components/ui/sheet";
-import {Button} from "~/components/ui/button";
-import {MenuIcon} from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTrigger,
+} from "~/components/ui/sheet";
+import { Button } from "~/components/ui/button";
+import { MenuIcon } from "lucide-react";
 import textLogoImage from "~/assets/images/text-logo.png";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import * as React from "react";
-import {useState} from "react";
-import {cn} from "~/lib/utils";
+import { useState } from "react";
+import { cn } from "~/lib/utils";
 import SmoothLink from "~/components/smooth-link";
-import {Link} from "@remix-run/react";
+import { Link } from "@remix-run/react";
 
 const links = [
   { name: "About", to: "/#about" },
@@ -77,9 +83,9 @@ function HeaderLinks({
 }) {
   return (
     <>
-      {links.map((link, index) => (
+      {links.map((link) => (
         <SmoothLink
-          key={index}
+          key={link.to}
           to={link.to}
           className={cn(
             background &&
