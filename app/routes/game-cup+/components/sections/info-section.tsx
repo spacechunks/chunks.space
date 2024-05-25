@@ -11,7 +11,7 @@ import { Button } from "~/components/ui/button";
 export default function InfoSection() {
   return (
     <Section className="">
-      <div className="bg-mystical-normal dark relative flex w-full rounded-lg">
+      <div className="dark relative flex w-full rounded-lg bg-[#1D182C]">
         <div className="flex w-full flex-col items-center gap-4 px-12 py-12 text-center">
           <img src={gameCupImage} alt="Game Cup" className="h-40 w-auto" />
           <TypographyH1>Win with your team</TypographyH1>
