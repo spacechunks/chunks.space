@@ -1,5 +1,7 @@
 import Section from "~/components/layout/section";
 import {TypographyH1, TypographyLead} from "~/components/ui/typography";
+import {cn} from "~/lib/utils";
+import {useEffect, useState} from "react";
 
 export default function TimerSection() {
     return (
@@ -36,11 +38,57 @@ function TimerCard({first, second, text}: {first: number, second: number, text: 
 }
 
 function TimerDigit({digit}: {digit: number}) {
+    const [transform, setTransform] = useState("translate-y-0")
+    useEffect(() => {
+        switch (digit) {
+            case 0:
+                setTransform("translate-y-0")
+                break
+            case 1:
+                setTransform("translate-y[-2.5rem] sm:translate-y-[-3.75rem] xl:translate-y-[-80px]")
+                break
+            case 2:
+                setTransform("translate-y[-5rem] sm:translate-y-[-7.5rem] xl:translate-y-[-160px]")
+                break
+            case 3:
+                setTransform("translate-y[-7.5rem] sm:translate-y-[-11.25rem] xl:translate-y-[-240px]")
+                break
+            case 4:
+                setTransform("translate-y[-10rem] sm:translate-y-[-15rem] xl:translate-y-[-320px]")
+                break
+            case 5:
+                setTransform("translate-y[-12.5rem] sm:translate-y-[-18.75rem] xl:translate-y-[-400px]")
+                break
+            case 6:
+                setTransform("translate-y[-15rem] sm:translate-y-[-22.5rem] xl:translate-y-[-480px]")
+                break
+            case 7:
+                setTransform("translate-y[-17.5rem] sm:translate-y-[-26.25rem] xl:translate-y-[-560px]")
+                break
+            case 8:
+                setTransform("translate-y[-20rem] sm:translate-y-[-30rem] xl:translate-y-[-640px]")
+                break
+            case 9:
+                setTransform("translate-y[-22.5rem] sm:translate-y-[-33.75rem] xl:translate-y-[-720px]")
+                break
+        }
+    }, []);
     return <div className="text-center w-[32px] sm:w-[60px] xl:w-[80px] h-[50px] sm:h-[80px] xl:h-[100px] font-[500] xl:font-[900] text-4xl sm:text-6xl xl:text-7xl xl:text-[80px] text-white bg-[#2D214E] rounded xl:rounded-xl border-[3px] xl:border-[6px] border-[#2D214E] overflow-hidden">
-        <div className="w-full h-full overflow-hidden flex items-center justify-center" style={{
-            background: `linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.4) 100%)`
+        <div className="w-full h-full overflow-hidden" style={{
+            background: `linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.4) 100%)`,
         }}>
-            {digit}
+            <div className={cn("w-full h-[25rem] sm:h-[37rem] xl:h-[800px] transition-[transform] duration-500", transform)}>
+                0
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+                9
+            </div>
         </div>
     </div>
 }
