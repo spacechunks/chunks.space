@@ -19,6 +19,7 @@ import SmoothLink from "~/components/smooth-link";
 import { Link } from "@remix-run/react";
 
 const links = [
+  { name: "Start", to: "/" },
   { name: "About", to: "/#about" },
   { name: "Game Cup", to: "/#game-cup" },
   { name: "Team", to: "/#team" },
