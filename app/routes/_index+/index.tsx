@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import Hero from "~/routes/_index+/components/hero";
+import IndexHero from "~/routes/_index+/components/index-hero";
 import Footer from "~/components/layout/footer";
 import AboutSection from "~/routes/_index+/components/sections/about-section";
 import ExperienceSection from "~/routes/_index+/components/sections/experience-section";
@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="flex flex-col gap-20 bg-white">
-      <Hero />
+      <IndexHero />
       <AboutSection />
       <ExperienceSection />
       <GameCupSection />

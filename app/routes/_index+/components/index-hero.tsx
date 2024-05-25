@@ -9,7 +9,7 @@ import { ChevronDown } from "lucide-react";
 import * as React from "react";
 import SmoothLink from "~/components/smooth-link";
 
-export default function Hero() {
+export default function IndexHero() {
   return (
     <div className="relative h-full w-full rounded-b-3xl bg-[#171023] py-8">
       <div className="relative z-50">
