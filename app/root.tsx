@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css?url";
-import firaSans from "~/fira-sans.css"
+import firaSans from "~/fira-sans.css?url";
 import { LinksFunction } from "@remix-run/node";
 import { getDiscordGuildInfo } from "~/service/discord.server";
 
