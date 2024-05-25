@@ -23,26 +23,26 @@ const teamMembers = [
     role: "Lead Developer",
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut etdfgdfgdfgdfgdfgdfgdfg",
   },
-  {
-    name: "D151l",
-    role: "Developer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
-  },
-  {
-    name: "MrManHD",
-    role: "Developer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
-  },
-  {
-    name: "daviidooo",
-    role: "Developer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
-  },
-  {
-    name: "Wetterbericht",
-    role: "Developer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
-  },
+  // {
+  //   name: "D151l",
+  //   role: "Developer",
+  //   text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+  // },
+  // {
+  //   name: "MrManHD",
+  //   role: "Developer",
+  //   text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+  // },
+  // {
+  //   name: "daviidooo",
+  //   role: "Developer",
+  //   text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+  // },
+  // {
+  //   name: "Wetterbericht",
+  //   role: "Developer",
+  //   text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+  // },
 ];
 
 export default function TeamSection() {
