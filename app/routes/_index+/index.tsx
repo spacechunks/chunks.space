@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Space Chunks a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
+        "Space Chunks is a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
     },
     {
       name: "theme-color",
@@ -27,7 +27,7 @@ export const meta: MetaFunction = () => {
     {
       property: "og:description",
       content:
-        "Space Chunks a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
+        "Space Chunks is a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
     },
     { property: "og:image", content: ogFacebook },
     { property: "og:image:alt", content: "Space Chunks" },
@@ -40,7 +40,7 @@ export const meta: MetaFunction = () => {
     {
       name: "twitter:description",
       content:
-        "Space Chunks a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
+        "Space Chunks is a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
     },
     { name: "twitter:image", content: ogTwitter },
     // Discord Meta Tags
