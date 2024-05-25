@@ -3,19 +3,19 @@ import {TypographyH1, TypographyLead} from "~/components/ui/typography";
 import {cn} from "~/lib/utils";
 import {useEffect, useState} from "react";
 
-const gameCupDate = new Date(2024, 6, 1)
+const gameCupDate = Date.UTC(2024, 6, 1, 0)
 
 export default function TimerSection() {
-    const initDistance = new Date(Math.max(gameCupDate.getTime() - new Date().getTime(), 0))
-    const [currentDays, setCurrentDays] = useState(initDistance.getDate() + (initDistance.getMonth() - 1) * 30)
-    const [currentHours, setCurrentHours] = useState(initDistance.getHours())
-    const [currentMinutes, setCurrentMinutes] = useState(initDistance.getMinutes())
+    const [currentDays, setCurrentDays] = useState(0)
+    const [currentHours, setCurrentHours] = useState(0)
+    const [currentMinutes, setCurrentMinutes] = useState(0)
     useEffect(() => {
         const interval = setInterval(() => {
-            const time = new Date(Math.max(gameCupDate.getTime() - new Date().getTime(), 0))
-            setCurrentDays(time.getDate() + (time.getMonth() - 1) * 30)
-            setCurrentHours(time.getHours())
-            setCurrentMinutes(time.getMinutes())
+            const currentDate = new Date(Date.now())
+            const time = new Date(Math.max(gameCupDate + currentDate.getTimezoneOffset() * 60000 - currentDate.getTime(), 0))
+            setCurrentDays(Math.floor(time.getTime() / (24 * 60 * 60 * 1000)))
+            setCurrentHours(time.getUTCHours())
+            setCurrentMinutes(time.getUTCMinutes())
         }, 1000)
         return () => clearInterval(interval)
     }, [useState])
