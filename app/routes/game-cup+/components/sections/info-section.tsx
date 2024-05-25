@@ -28,7 +28,7 @@ export default function InfoSection() {
             to take on this challenge?
           </TypographyP>
           <Button
-            className="text-mystical-normal px-12 uppercase"
+            className="px-12 uppercase text-mystical-normal"
             variant="tertiary"
             size="lg"
           >
@@ -44,7 +44,7 @@ export default function InfoSection() {
           <div className="h-full w-full">
             <div className="absolute -right-8 bottom-12 flex h-fit w-fit flex-col items-end gap-6">
               <TypographyH1 className="w-fit rounded-lg bg-secondary p-4 uppercase">
-                50 Price
+                50€ Price
               </TypographyH1>
               <TypographyH1 className="w-fit rounded-lg bg-secondary p-4 uppercase">
                 2 Weeks
@@ -68,7 +68,7 @@ export default function InfoSection() {
             alt="Roadmap"
             className="h-full w-full rounded-lg object-cover"
           />
-          <div className="text-ethereal-normal absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl">
+          <div className="absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl text-ethereal-normal">
             <div className="flex items-center gap-2 group-hover:underline">
               <ExternalLink />
               <span>Roadmap - Event Schedule</span>
@@ -85,7 +85,7 @@ export default function InfoSection() {
             alt="Roadmap"
             className="h-full w-full rounded-lg object-cover"
           />
-          <div className="text-ethereal-normal absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl">
+          <div className="absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl text-ethereal-normal">
             <div className="flex items-center gap-2 group-hover:underline">
               <ExternalLink />
               <span>Rules and Guidelines</span>

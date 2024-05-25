@@ -7,6 +7,7 @@ import GameCupHero from "~/routes/game-cup+/components/game-cup-hero";
 import InfoSection from "~/routes/game-cup+/components/sections/info-section";
 import ogFacebook from "~/assets/images/og-game-cup-facebook.png";
 import ogTwitter from "~/assets/images/og-game-cup-twitter.png";
+import ApplySection from "~/routes/game-cup+/components/sections/apply-section";
 
 export const meta: MetaFunction = () => {
   return [
@@ -56,6 +57,7 @@ export default function GameCupPage() {
       <InfoSection />
       <ParticipantsSection />
       <FaqSection />
+      <ApplySection/>
       <Footer />
     </div>
   );
