@@ -7,6 +7,35 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 
+const faqItems = [
+  {
+    question: "How can I become part of Space Chunks?",
+    answer:
+      "Yes you can! Just contact us on Discord and we'll get back to you.",
+  },
+  {
+    question: "How is the studio financed?",
+    answer:
+      "We are currently self-financed, that means we don't have any external investors.",
+  },
+  {
+    question: "What projects will there be in the future?",
+    answer:
+      "We are planning to host more events and competitions in the future, besides that we are working some secret projects. Stay tuned!",
+  },
+  {
+    question:
+      "What does a partnership look like and how can I become a partner?",
+    answer:
+      "We are always looking for partners who share our vision. Just contact us and we'll get back to you.",
+  },
+  {
+    question: "How can I support Space Chunks?",
+    answer:
+      "You can support us by participating in our events, competitions, or by becoming a partner.",
+  },
+];
+
 export default function FaqSection() {
   return (
     <Section id="faq">
@@ -17,27 +46,17 @@ export default function FaqSection() {
           looking for, feel free to contact us!
         </TypographyLead>
       </div>
-      <Accordion type="single" defaultValue="item-1" className="w-full">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger>Is it styled?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It comes with default styles that matches the other
-            components&apos; aesthetic.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-3">
-          <AccordionTrigger>Is it animated?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It&apos;s animated by default, but you can disable it if you
-            prefer.
-          </AccordionContent>
-        </AccordionItem>
+      <Accordion
+        type="single"
+        defaultValue={faqItems[0].question}
+        className="w-full"
+      >
+        {faqItems.map((item, index) => (
+          <AccordionItem key={index} value={item.question}>
+            <AccordionTrigger>{item.question}</AccordionTrigger>
+            <AccordionContent>{item.answer}</AccordionContent>
+          </AccordionItem>
+        ))}
       </Accordion>
     </Section>
   );
