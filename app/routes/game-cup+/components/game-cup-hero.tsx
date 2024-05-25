@@ -12,8 +12,32 @@ export default function GameCupHero() {
         <Header />
       </div>
       <div className="absolute top-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
-      <div className="absolute top-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
-      <div className="absolute right-0 top-0 h-full w-full bg-gradient-to-tr from-[#BD00FF]/0 via-[#FF8A00] to-[#BD00FF]/0 opacity-30" />
+      <div className="absolute inset-0 h-full w-full overflow-hidden">
+        <svg
+          viewBox="0 0 1440 500"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0H1440V450C1440 477.614 1417.61 500 1390 500H50C22.3857 500 0 477.614 0 450V0Z"
+            fill="url(#paint0_radial_2247_1212)"
+            fillOpacity="0.3"
+          />
+          <defs>
+            <radialGradient
+              id="paint0_radial_2247_1212"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(1023 242.339) rotate(145.543) scale(455.4 999.783)"
+            >
+              <stop stopColor="#FF8A00" />
+              <stop offset="1" stopColor="#BD00FF" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
       <div className="container relative flex w-full justify-between py-12">
         <div className="flex w-full max-w-2xl flex-col gap-4">
           <TypographyH1 className="text-ethereal-normal mt-12 flex flex-col gap-2 text-5xl">
