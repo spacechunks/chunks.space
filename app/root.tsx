@@ -7,11 +7,13 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css?url";
+import firaSans from "~/fira-sans.css"
 import { LinksFunction } from "@remix-run/node";
 import { getDiscordGuildInfo } from "~/service/discord.server";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: firaSans },
   { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
   {
     rel: "icon",
