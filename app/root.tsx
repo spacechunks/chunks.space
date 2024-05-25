@@ -44,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-[#171323]">
+      <body className="bg-[#171323] text-ethereal-normal">
         {children}
         <ScrollRestoration />
         <Scripts />
