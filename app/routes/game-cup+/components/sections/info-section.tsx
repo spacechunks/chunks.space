@@ -13,7 +13,7 @@ import { Link } from "@remix-run/react";
 
 export default function InfoSection() {
   return (
-    <Section className="">
+    <Section id="info">
       <div className="dark relative flex w-full rounded-lg bg-[#1D182C]">
         <div className="flex w-full flex-col items-center gap-4 px-12 py-12 text-center">
           <img src={gameCupImage} alt="Game Cup" className="h-40 w-auto" />
@@ -28,7 +28,7 @@ export default function InfoSection() {
             to take on this challenge?
           </TypographyP>
           <Button
-            className="px-12 uppercase text-mystical-normal"
+            className="text-mystical-normal px-12 uppercase"
             variant="tertiary"
             size="lg"
           >
@@ -68,7 +68,7 @@ export default function InfoSection() {
             alt="Roadmap"
             className="h-full w-full rounded-lg object-cover"
           />
-          <div className="absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl text-ethereal-normal">
+          <div className="text-ethereal-normal absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl">
             <div className="flex items-center gap-2 group-hover:underline">
               <ExternalLink />
               <span>Roadmap - Event Schedule</span>
@@ -85,7 +85,7 @@ export default function InfoSection() {
             alt="Roadmap"
             className="h-full w-full rounded-lg object-cover"
           />
-          <div className="absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl text-ethereal-normal">
+          <div className="text-ethereal-normal absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl">
             <div className="flex items-center gap-2 group-hover:underline">
               <ExternalLink />
               <span>Rules and Guidelines</span>

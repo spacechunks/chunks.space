@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import * as React from "react";
 import { TypographyH1, TypographyP } from "~/components/ui/typography";
 import { Button } from "~/components/ui/button";
+import SmoothLink from "~/components/smooth-link";
 
 export default function GameCupHero() {
   return (
@@ -54,8 +55,13 @@ export default function GameCupHero() {
             take home a €50 prize. Start applying today!
           </TypographyP>
           <div>
-            <Button variant="tertiary" className="px-12 uppercase" size="lg">
-              Read more
+            <Button
+              variant="tertiary"
+              className="px-12 uppercase"
+              size="lg"
+              asChild
+            >
+              <SmoothLink to="/game-cup#info">Read more</SmoothLink>
             </Button>
           </div>
         </div>

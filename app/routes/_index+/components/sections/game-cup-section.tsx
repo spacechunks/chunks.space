@@ -7,6 +7,7 @@ import {
 import { Button } from "~/components/ui/button";
 import gameCupImage from "~/assets/images/game-cup.png";
 import { motion } from "framer-motion";
+import { Link } from "@remix-run/react";
 
 const cupVariants = {
   visible: {
@@ -51,8 +52,13 @@ export default function GameCupSection() {
             </TypographyP>
           </div>
           <div>
-            <Button variant="tertiary" size="lg" className="px-12 uppercase">
-              Read more
+            <Button
+              variant="tertiary"
+              size="lg"
+              className="px-12 uppercase"
+              asChild
+            >
+              <Link to="/game-cup">Read more</Link>
             </Button>
           </div>
         </div>
