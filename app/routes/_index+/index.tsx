@@ -7,8 +7,8 @@ import GameCupSection from "~/routes/_index+/components/sections/game-cup-sectio
 import TeamSection from "~/routes/_index+/components/sections/team-section";
 import FaqSection from "~/routes/_index+/components/sections/faq-section";
 import ContactSection from "~/routes/_index+/components/sections/contact-section";
-import ogTwitter from "~/assets/images/og-twitter.png";
 import ogFacebook from "~/assets/images/og-facebook.png";
+import ogTwitter from "~/assets/images/og-twitter.png";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,6 +17,10 @@ export const meta: MetaFunction = () => {
       name: "description",
       content:
         "Space Chunks a team of developers, designers, and event organizers who are passionate about creating unique experiences for Minecraft. Our goal is to have fun and create something that we can all be proud of.",
+    },
+    {
+      name: "theme-color",
+      content: "#A80099",
     },
     // Facebook Open Graph Meta Tags
     { property: "og:title", content: "Space Chunks" },
