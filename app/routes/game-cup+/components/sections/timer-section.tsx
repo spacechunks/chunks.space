@@ -6,14 +6,13 @@ import {useEffect, useState} from "react";
 const gameCupDate = new Date(2024, 6, 1)
 
 export default function TimerSection() {
-    const [currentDays, setCurrentDays] = useState(0)
-    const [currentHours, setCurrentHours] = useState(0)
-    const [currentMinutes, setCurrentMinutes] = useState(0)
+    const initDistance = new Date(Math.max(gameCupDate.getTime() - new Date().getTime(), 0))
+    const [currentDays, setCurrentDays] = useState(initDistance.getDate() + (initDistance.getMonth() - 1) * 30)
+    const [currentHours, setCurrentHours] = useState(initDistance.getHours())
+    const [currentMinutes, setCurrentMinutes] = useState(initDistance.getMinutes())
     useEffect(() => {
         const interval = setInterval(() => {
-            let distance = gameCupDate.getTime() - new Date().getTime()
-            if(distance < 0) distance = 0
-            const time = new Date(distance)
+            const time = new Date(Math.max(gameCupDate.getTime() - new Date().getTime(), 0))
             setCurrentDays(time.getDate() + (time.getMonth() - 1) * 30)
             setCurrentHours(time.getHours())
             setCurrentMinutes(time.getMinutes())
