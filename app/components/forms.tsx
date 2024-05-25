@@ -4,6 +4,7 @@ import { Checkbox, type CheckboxProps } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
+import { cn } from "~/lib/utils";
 
 export type ListOfErrors = Array<string | null | undefined> | null | undefined;
 
@@ -42,7 +43,7 @@ export function Field({
   const id = inputProps.id ?? fallbackId;
   const errorId = errors?.length ? `${id}-error` : undefined;
   return (
-    <div className={className}>
+    <div className={cn("flex flex-col gap-3", className)}>
       <Label htmlFor={id} {...labelProps} />
       <Input
         id={id}
@@ -72,7 +73,7 @@ export function TextareaField({
   const id = textareaProps.id ?? textareaProps.name ?? fallbackId;
   const errorId = errors?.length ? `${id}-error` : undefined;
   return (
-    <div className={className}>
+    <div className={cn("flex flex-col gap-3", className)}>
       <Label htmlFor={id} {...labelProps} />
       <Textarea
         id={id}
@@ -116,7 +117,7 @@ export function CheckboxField({
 
   return (
     <div className={className}>
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2">
         <Checkbox
           {...checkboxProps}
           id={id}
