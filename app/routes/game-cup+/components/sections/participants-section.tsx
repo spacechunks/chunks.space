@@ -96,7 +96,7 @@ export default function ParticipantsSection() {
                   !team.doNotExtendMembers ? unknownMember : undefined,
                 ),
               ].map((member, index) => (
-                <div
+                <div key={index}
                   className={cn(
                     "flex h-full items-center gap-1 px-4 py-2",
                     index < 3 && "border-wild-sand-200 border-b",
