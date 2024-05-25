@@ -38,7 +38,7 @@ export default function GameCupHero() {
           <motion.img
             src={gameCupImage}
             alt="Game Cup"
-            className="absolute inset-0 right-0 top-0 z-10 h-[28rem] w-full object-contain"
+            className="absolute inset-0 right-0 top-4 z-10 h-[28rem] w-full object-contain"
           />
         </div>
       </div>
