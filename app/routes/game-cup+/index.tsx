@@ -1,5 +1,5 @@
-import Hero from "~/components/layout/hero";
-import FaqSection from "~/sections/game-cup/faq-section";
+import Hero from "~/routes/_index+/components/hero";
+import FaqSection from "~/routes/game-cup+/components/sections/faq-section";
 import Footer from "~/components/layout/footer";
 
 export default function GameCupPage() {

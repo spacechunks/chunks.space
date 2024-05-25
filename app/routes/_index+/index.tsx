@@ -1,12 +1,12 @@
 import type { MetaFunction } from "@remix-run/node";
-import Hero from "~/components/layout/hero";
+import Hero from "~/routes/_index+/components/hero";
 import Footer from "~/components/layout/footer";
-import AboutSection from "~/sections/index/about-section";
-import ExperienceSection from "~/sections/index/experience-section";
-import GameCupSection from "~/sections/index/game-cup-section";
-import TeamSection from "~/sections/index/team-section";
-import FaqSection from "~/sections/index/faq-section";
-import ContactSection from "~/sections/index/contact-section";
+import AboutSection from "~/routes/_index+/components/sections/about-section";
+import ExperienceSection from "~/routes/_index+/components/sections/experience-section";
+import GameCupSection from "~/routes/_index+/components/sections/game-cup-section";
+import TeamSection from "~/routes/_index+/components/sections/team-section";
+import FaqSection from "~/routes/_index+/components/sections/faq-section";
+import ContactSection from "~/routes/_index+/components/sections/contact-section";
 
 export const meta: MetaFunction = () => {
   return [
