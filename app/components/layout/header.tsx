@@ -16,6 +16,7 @@ import * as React from "react";
 import { useState } from "react";
 import { cn } from "~/lib/utils";
 import SmoothLink from "~/components/smooth-link";
+import { Link } from "@remix-run/react";
 
 const links = [
   { name: "About", to: "/#about" },
@@ -31,7 +32,9 @@ export default function Header() {
   return (
     <header className="container flex items-center justify-between px-12 text-white">
       <div className="flex items-center gap-10">
-        <img className="h-12 w-auto" src={logoImage} alt="logo" />
+        <Link to="/">
+          <img className="h-12 w-auto" src={logoImage} alt="logo" />
+        </Link>
         <div className="hidden items-center gap-10 md:flex">
           <HeaderLinks />
         </div>
