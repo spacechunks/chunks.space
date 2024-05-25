@@ -4,7 +4,7 @@ import { RemixLinkProps } from "@remix-run/react/dist/components";
 
 export default function SmoothLink({
   children,
-  delay = 15,
+  delay,
   ...props
 }: RemixLinkProps &
   React.RefAttributes<HTMLAnchorElement> & {
@@ -24,9 +24,8 @@ export default function SmoothLink({
 
   if (isCurrentPage && !!toPath) {
     return (
-      <Link
-        {...props}
-        to={toLinkWithoutHash}
+      <button
+        className={props.className}
         onClick={(event) => {
           const element = document.getElementById(toPath.hash);
           if (!element) {
@@ -52,16 +51,22 @@ export default function SmoothLink({
           }
 
           if (props.onClick) {
-            props.onClick(event);
+            // @ts-ignore
+            props.onClick();
           }
 
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: "smooth" });
-          }, delay);
+          if (delay) {
+            setTimeout(() => {
+              element.scrollIntoView({ behavior: "smooth" });
+            }, delay);
+            return;
+          }
+
+          element.scrollIntoView({ behavior: "smooth" });
         }}
       >
         {children}
-      </Link>
+      </button>
     );
   }
 
