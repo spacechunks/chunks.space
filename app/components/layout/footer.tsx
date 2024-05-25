@@ -4,6 +4,7 @@ import { TypographySmall } from "~/components/ui/typography";
 import DiscordButton from "~/components/ui/discord-button";
 import { Button } from "~/components/ui/button";
 import textLogo from "~/assets/images/text-logo.png";
+import GithubIcon from "~/components/icons/github";
 
 const navigationLinks = [
   {
@@ -100,6 +101,12 @@ export default function Footer() {
               </TypographySmall>
             </div>
             <div className="order-first flex w-full items-center justify-between gap-4 md:order-none md:w-auto">
+              <a href="https://github.com/spacechunks" target="_blank">
+                <GithubIcon
+                  className="text-ethereal-subtle h-full w-auto"
+                  aria-label="Github"
+                />
+              </a>
               <DiscordButton />
             </div>
           </div>

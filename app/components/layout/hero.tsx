@@ -99,7 +99,7 @@ export default function Hero() {
 
 function HeroStones() {
   return (
-    <div className="absolute flex h-full w-full items-center justify-center">
+    <div className="absolute hidden h-full w-full items-center justify-center md:flex">
       <div className="container relative h-full w-full">
         <Stone
           variant="1"

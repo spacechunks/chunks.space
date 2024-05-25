@@ -48,7 +48,7 @@ export default function ContactSection() {
         <img
           src={logoImage}
           alt="Space Chunks"
-          className="absolute -top-40 right-0 h-56 w-auto"
+          className="absolute -top-16 right-0 h-28 w-auto md:-top-40 md:h-56"
         />
         <TypographyH3>Let's chat! Send us a message.</TypographyH3>
         <div className="flex flex-col">
