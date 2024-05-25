@@ -4,6 +4,7 @@ import ParticipantsSection from "~/routes/game-cup+/components/sections/particip
 import TimerSection from "~/routes/game-cup+/components/sections/timer-section";
 import type { MetaFunction } from "@remix-run/node";
 import GameCupHero from "~/routes/game-cup+/components/game-cup-hero";
+import InfoSection from "~/routes/game-cup+/components/sections/info-section";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,6 +22,7 @@ export default function GameCupPage() {
     <div className="flex flex-col gap-20 bg-white">
       <GameCupHero />
       <TimerSection />
+      <InfoSection />
       <ParticipantsSection />
       <FaqSection />
       <Footer />
