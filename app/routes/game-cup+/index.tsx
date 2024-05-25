@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "theme-color",
-      content: "#A80099",
+      content: "#3D365C",
     },
     // Facebook Open Graph Meta Tags
     { property: "og:title", content: "Space Chunks" },
