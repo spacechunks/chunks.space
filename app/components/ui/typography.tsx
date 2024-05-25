@@ -16,7 +16,7 @@ export function TypographyH1({
     <h1
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal font-fira-sans scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+        "text-mystical-normal dark:text-ethereal-normal font-fira-sans scroll-m-20 text-4xl font-extrabold tracking-wide lg:text-5xl",
         className,
       )}
     >

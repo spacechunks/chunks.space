@@ -12,11 +12,12 @@ export default function GameCupHero() {
         <Header />
       </div>
       <div className="absolute top-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
-      <div className="absolute inset-0 h-full w-full overflow-hidden">
+      <div className="absolute inset-0 h-full w-full overflow-hidden rounded-lg object-cover">
         <svg
           viewBox="0 0 1440 500"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="absolute right-0 h-full object-cover"
         >
           <path
             d="M0 0H1440V450C1440 477.614 1417.61 500 1390 500H50C22.3857 500 0 477.614 0 450V0Z"
