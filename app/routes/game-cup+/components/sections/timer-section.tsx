@@ -3,7 +3,7 @@ import { TypographyH1, TypographyLead } from "~/components/ui/typography";
 import { cn } from "~/lib/utils";
 import { useEffect, useState } from "react";
 
-const gameCupDate = Date.UTC(2024, 6, 1, 0);
+const gameCupDate = Date.UTC(2024, 6, 6, 0);
 
 export default function TimerSection() {
   const [currentDays, setCurrentDays] = useState(0);
@@ -35,7 +35,13 @@ export default function TimerSection() {
           </TypographyH1>
           <TypographyLead className="w-full">
             <span className="text-sm sm:text-base xl:text-[24px] xl:font-[500]">
-              Starting on Monday, 6. Juli 2024
+              Starting on{" "}
+              {Intl.DateTimeFormat("en-US", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              }).format(gameCupDate)}
             </span>
           </TypographyLead>
         </div>
