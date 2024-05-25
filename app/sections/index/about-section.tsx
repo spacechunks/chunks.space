@@ -20,19 +20,19 @@ const tabs = [
     title: "Creative",
     id: "creative",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
+      "All of our projects are created with the goal of providing a unique experience for players. We strive to create something that is both fun and engaging.",
   },
   {
     title: "Development",
     id: "development",
     description:
-      "3Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
+      "Our team is made up of developers who are passionate about creating unique experiences for Minecraft. We are constantly working on new projects and features to improve the player experience.",
   },
   {
     title: "Events",
     id: "events",
     description:
-      "2Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
+      "We host events and competitions for other developers, designers, and players to participate in. Our goal is to create a community of like-minded individuals who are passionate about creating unique experiences for Minecraft.",
   },
 ];
 
@@ -43,10 +43,9 @@ export default function AboutSection() {
       <div className="flex flex-1 flex-col gap-4">
         <TypographyH1>What is Space Chunks?</TypographyH1>
         <TypographyP>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
-          Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
-          mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
-          tellus..
+          We are a team of developers, designers, and event organizers who are
+          passionate about creating unique experiences for Minecraft. Our goal
+          is to have fun and create something that we can all be proud of.
         </TypographyP>
 
         <Accordion
