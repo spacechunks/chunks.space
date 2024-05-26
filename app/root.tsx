@@ -10,6 +10,7 @@ import stylesheet from "~/tailwind.css?url";
 import firaSans from "~/fira-sans.css?url";
 import { LinksFunction } from "@remix-run/node";
 import { getDiscordGuildInfo } from "~/service/discord.server";
+import ErrorPage from "~/components/layout/error-page";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -44,13 +45,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-[#171323] text-ethereal-normal">
+      <body className="bg-[#171323]">
         {children}
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
+}
+
+export function ErrorBoundary() {
+  return <ErrorPage />;
 }
 
 export default function App() {

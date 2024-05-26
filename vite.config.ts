@@ -3,6 +3,7 @@ import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { flatRoutes } from "remix-flat-routes";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 installGlobals();
 
@@ -16,6 +17,7 @@ export default defineConfig({
         return flatRoutes("routes", defineRoutes);
       },
     }),
+    ViteImageOptimizer({}),
     tsconfigPaths(),
   ],
 });
