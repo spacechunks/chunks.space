@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Calling all developers and game designers! Enter our Minecraft Minigame Competition and build something extraordinary in just 2 weeks. Impress us with your creativity and innovation, and you could take home a €50 prize. Start applying today!",
+        "Calling all developers and game designers! Enter our Minecraft Minigame Competition and build something extraordinary in just 2 weeks. Impress us with your creativity and innovation, and you could take home a €150 prize. Start applying today!",
     },
     {
       name: "theme-color",
@@ -26,7 +26,7 @@ export const meta: MetaFunction = () => {
     {
       property: "og:description",
       content:
-        "Calling all developers and game designers! Enter our Minecraft Minigame Competition and build something extraordinary in just 2 weeks. Impress us with your creativity and innovation, and you could take home a €50 prize. Start applying today!",
+        "Calling all developers and game designers! Enter our Minecraft Minigame Competition and build something extraordinary in just 2 weeks. Impress us with your creativity and innovation, and you could take home a €150 prize. Start applying today!",
     },
     { property: "og:image", content: ogFacebook },
     { property: "og:image:alt", content: "Space Chunks" },
@@ -39,7 +39,7 @@ export const meta: MetaFunction = () => {
     {
       name: "twitter:description",
       content:
-        "Calling all developers and game designers! Enter our Minecraft Minigame Competition and build something extraordinary in just 2 weeks. Impress us with your creativity and innovation, and you could take home a €50 prize. Start applying today!",
+        "Calling all developers and game designers! Enter our Minecraft Minigame Competition and build something extraordinary in just 2 weeks. Impress us with your creativity and innovation, and you could take home a €150 prize. Start applying today!",
     },
     { name: "twitter:image", content: ogTwitter },
     // Discord Meta Tags
@@ -57,7 +57,7 @@ export default function GameCupPage() {
       <InfoSection />
       <ParticipantsSection />
       <FaqSection />
-      <ApplySection/>
+      <ApplySection />
       <Footer />
     </div>
   );

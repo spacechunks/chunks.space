@@ -45,14 +45,15 @@ export default function GameCupHero() {
           <TypographyH1 className="text-ethereal-normal mt-12 flex flex-col gap-2 text-5xl">
             <span>Create and Compete:</span>
             <span>
-              Win <span className="text-secondary">€50</span> with your Minigame
+              Win <span className="text-secondary">€150</span> with your
+              Minigame
             </span>
           </TypographyH1>
           <TypographyP className="text-ethereal-subtle">
             Calling all developers and game designers! Enter our Minecraft
             Minigame Competition and build something extraordinary in just 2
             weeks. Impress us with your creativity and innovation, and you could
-            take home a €50 prize. Start applying today!
+            take home a €150 prize. Start applying today!
           </TypographyP>
           <div>
             <Button
