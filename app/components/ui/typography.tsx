@@ -16,7 +16,7 @@ export function TypographyH1({
     <h1
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal font-fira-sans scroll-m-20 text-4xl font-extrabold tracking-wide lg:text-5xl",
+        "scroll-m-20 font-fira-sans text-4xl font-extrabold tracking-wide text-mystical-normal dark:text-ethereal-normal lg:text-5xl",
         className,
       )}
     >
@@ -34,7 +34,7 @@ export function TypographyH2({
     <h2
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal font-fira-sans scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
+        "scroll-m-20 font-fira-sans text-3xl font-semibold tracking-tight text-mystical-normal transition-colors first:mt-0 dark:text-ethereal-normal",
         className,
       )}
     >
@@ -52,7 +52,7 @@ export function TypographyH3({
     <h3
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal font-fira-sans scroll-m-20 text-2xl font-bold tracking-tight",
+        "scroll-m-20 font-fira-sans text-2xl font-bold tracking-tight text-mystical-normal dark:text-ethereal-normal",
         className,
       )}
     >
@@ -70,7 +70,7 @@ export function TypographyH4({
     <h4
       {...props}
       className={cn(
-        "font-fira-sans text-mystical-normal dark:text-ethereal-normal scroll-m-20 text-xl font-semibold tracking-tight",
+        "scroll-m-20 font-fira-sans text-xl font-semibold tracking-tight text-mystical-normal dark:text-ethereal-normal",
         className,
       )}
     >
@@ -93,7 +93,7 @@ export function TypographyP({
     <p
       {...props}
       className={cn(
-        "text-mystical-subtle dark:text-ethereal-subtle leading-7",
+        "leading-7 text-mystical-subtle dark:text-ethereal-subtle",
         topMargin && "[&:not(:first-child)]:mt-6",
         className,
       )}
@@ -145,7 +145,7 @@ export function TypographyLead({
     <p
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal text-xl font-normal",
+        "text-xl font-normal text-mystical-normal dark:text-ethereal-normal",
         className,
       )}
     >
@@ -163,7 +163,7 @@ export function TypographyLarge({
     <div
       {...props}
       className={cn(
-        "text-mystical-normal dark:text-ethereal-normal font-fira-sans text-lg font-semibold",
+        "font-fira-sans text-lg font-semibold text-mystical-normal dark:text-ethereal-normal",
         className,
       )}
     >
