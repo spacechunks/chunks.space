@@ -5,26 +5,20 @@ import {
   TypographyLead,
 } from "~/components/ui/typography";
 import { Button } from "~/components/ui/button";
-import { Form, Link } from "@remix-run/react";
+import { Form, Link, useActionData } from "@remix-run/react";
 import logoImage from "~/assets/images/logo.png";
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { CheckboxField, Field, TextareaField } from "~/components/forms";
-import { z } from "zod";
 import { getZodConstraint, parseWithZod } from "@conform-to/zod";
-
-const contactSchema = z.object({
-  subject: z.string(),
-  name: z.string(),
-  email: z.string().email(),
-  message: z.string(),
-  privacy: z.boolean(),
-});
+import { contactSchema } from "~/service/contact.schema";
+import { action } from "~/routes/_index+";
 
 export default function ContactSection() {
+  const actionData = useActionData<typeof action>();
   const [form, fields] = useForm({
     id: "contact-form",
     constraint: getZodConstraint(contactSchema),
-    // lastResult: lastResult,
+    lastResult: actionData?.result,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: contactSchema });
     },

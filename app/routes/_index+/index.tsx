@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import { ActionFunctionArgs, json, MetaFunction } from "@remix-run/node";
 import IndexHero from "~/routes/_index+/components/index-hero";
 import Footer from "~/components/layout/footer";
 import AboutSection from "~/routes/_index+/components/sections/about-section";
@@ -9,6 +9,9 @@ import FaqSection from "~/routes/_index+/components/sections/faq-section";
 import ContactSection from "~/routes/_index+/components/sections/contact-section";
 import ogFacebook from "~/assets/images/og-facebook.png";
 import ogTwitter from "~/assets/images/og-twitter.png";
+import { parseWithZod } from "@conform-to/zod";
+import { contactSchema } from "~/service/contact.schema";
+import { logContactForm } from "~/service/contact.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -49,6 +52,23 @@ export const meta: MetaFunction = () => {
     { property: "og:locale", content: "en_US" },
   ];
 };
+
+export async function action({ request }: ActionFunctionArgs) {
+  const formData = await request.formData();
+
+  const submission = parseWithZod(formData, { schema: contactSchema });
+
+  if (submission.status !== "success") {
+    return json(
+      { result: submission.reply() },
+      { status: submission.status === "error" ? 400 : 200 },
+    );
+  }
+
+  await logContactForm(submission.value);
+
+  return null;
+}
 
 export default function Index() {
   return (
