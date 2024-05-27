@@ -14,8 +14,8 @@ import { Link } from "@remix-run/react";
 export default function InfoSection() {
   return (
     <Section id="info">
-      <div className="dark relative flex w-full rounded-lg bg-[#1D182C]">
-        <div className="flex w-full flex-col items-center gap-4 px-12 py-12 text-center">
+      <div className="dark relative flex w-full flex-col rounded-lg bg-[#1D182C] md:flex-row">
+        <div className="flex w-full flex-col items-center gap-4 px-12 py-12 md:text-center">
           <img src={gameCupImage} alt="Game Cup" className="h-40 w-auto" />
           <TypographyH1>Win with your team</TypographyH1>
           <TypographyLead>
@@ -28,14 +28,14 @@ export default function InfoSection() {
             to take on this challenge?
           </TypographyP>
           <Button
-            className="text-mystical-normal px-12 uppercase"
+            className="text-mystical-normal uppercase md:px-12"
             variant="tertiary"
             size="lg"
           >
             Apply on our discord
           </Button>
         </div>
-        <div className="relative w-full">
+        <div className="relative hidden w-full md:block">
           <img
             src={gameCupInfoImage}
             alt="Game Cup Info"
