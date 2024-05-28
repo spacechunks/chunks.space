@@ -11,17 +11,17 @@ const teamMembers = [
   {
     name: "EgyBoy",
     role: "Lead Designer & Model Artist",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+    text: "I'm here to make sure everything looks good and is fun to play!",
   },
   {
     name: "Fllip",
     role: "Lead Developer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et",
+    text: "My job is to ensure that everything works as intended and every developer has a fun time working on the project.",
   },
   {
     name: "Freggyy",
-    role: "Lead Developer",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut etdfgdfgdfgdfgdfgdfgdfg",
+    role: "Lead Dev-Ops Engineer",
+    text: "Always making sure that the servers are running smoothly and that the events are always up and running.",
   },
   // {
   //   name: "D151l",
