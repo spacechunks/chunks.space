@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
+import { Markdown } from "~/components/ui/markdown";
 
 const faqItems = [
   {
@@ -48,7 +49,9 @@ export default function FaqSection() {
         {faqItems.map((item, index) => (
           <AccordionItem key={index} value={item.question}>
             <AccordionTrigger>{item.question}</AccordionTrigger>
-            <AccordionContent>{item.answer}</AccordionContent>
+            <AccordionContent>
+              <Markdown content={item.answer} />
+            </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

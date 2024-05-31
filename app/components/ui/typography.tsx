@@ -198,3 +198,21 @@ export function TypographyMuted({
     </p>
   );
 }
+
+export function TypographyProse({
+  children,
+  className,
+  ...props
+}: TypographyProps) {
+  return (
+    <p
+      {...props}
+      className={cn(
+        "prose-headings:text-mystical-normal prose-a:text-primary prose",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
