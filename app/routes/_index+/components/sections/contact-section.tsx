@@ -14,6 +14,22 @@ import { contactSchema } from "~/service/contact.schema";
 import { action } from "~/routes/_index+";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
+
+const rocketVariants = {
+  initial: { right: 0, rotate: 0, opacity: 100 },
+  fly: {
+    right: -1000,
+    rotate: 68,
+    opacity: 0,
+    transition: {
+      duration: 1,
+      ease: "easeOut",
+      right: { delay: 0.5 },
+      opacity: { delay: 1.5 },
+    },
+  },
+};
 
 export default function ContactSection() {
   const actionData = useActionData<typeof action>();
@@ -27,6 +43,7 @@ export default function ContactSection() {
 
     shouldRevalidate: "onBlur",
   });
+  const successfullySent = actionData?.result?.status === "success";
 
   useEffect(() => {
     if (actionData?.result?.status === "success") {
@@ -49,10 +66,14 @@ export default function ContactSection() {
         method="post"
         {...getFormProps(form)}
       >
-        <img
+        <motion.img
           src={logoImage}
           alt="Space Chunks"
-          className="absolute -top-16 right-0 h-28 w-auto md:-top-40 md:h-56"
+          // className="absolute -top-16 right-0 h-28 w-auto md:-top-40 md:h-56"
+          className="absolute -top-16 h-56 w-auto md:-top-40"
+          variants={rocketVariants}
+          initial="initial"
+          animate={successfullySent ? "fly" : ""}
         />
         <TypographyH3>Let's chat! Send us a message.</TypographyH3>
         <div className="flex flex-col">
