@@ -1,8 +1,9 @@
 import { ContactForm } from "~/service/contact.schema";
 import { EmbedBuilder, WebhookClient } from "discord.js";
+import * as process from "node:process";
 
 const webhookClient = new WebhookClient({
-  url: "https://discord.com/api/webhooks/1244581112508842075/alIBT6js4idJKS4gw_mvboa81y5st4Iy-c9SGmk00eU14Nsu_oO89BycC5COufCAAD4Y",
+  url: process.env.CONTACT_DISCORD_WEBHOOK,
 });
 
 export async function logContactForm(contactForm: ContactForm) {

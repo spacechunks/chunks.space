@@ -12,6 +12,8 @@ import { CheckboxField, Field, TextareaField } from "~/components/forms";
 import { getZodConstraint, parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { action } from "~/routes/_index+";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 export default function ContactSection() {
   const actionData = useActionData<typeof action>();
@@ -22,8 +24,16 @@ export default function ContactSection() {
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: contactSchema });
     },
+
     shouldRevalidate: "onBlur",
   });
+
+  useEffect(() => {
+    if (actionData?.result?.status === "success") {
+      form.reset();
+      toast.success("Thank you for reaching out! We'll get back to you soon.");
+    }
+  }, [actionData?.result?.status]);
 
   return (
     <Section id="contact">
@@ -35,7 +45,7 @@ export default function ContactSection() {
         </TypographyLead>
       </div>
       <Form
-        className="bg-wild-sand-100 relative flex flex-col gap-8 rounded-lg p-12"
+        className="relative flex flex-col gap-8 rounded-lg bg-wild-sand-100 p-12"
         method="post"
         {...getFormProps(form)}
       >

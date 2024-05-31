@@ -67,7 +67,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   await logContactForm(submission.value);
 
-  return null;
+  return json({ result: submission.reply() });
 }
 
 export default function Index() {
