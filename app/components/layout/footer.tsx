@@ -53,9 +53,9 @@ export default function Footer() {
           className="h-full max-h-[12rem] w-auto object-cover"
         />
         <div className="flex gap-16">
-          <div className="text-ethereal-subtle flex gap-8 uppercase">
+          <div className="flex gap-8 uppercase text-ethereal-subtle">
             <ul className="flex flex-col gap-2">
-              <TypographySmall className="text-ethereal-normal font-bold">
+              <TypographySmall className="font-bold text-ethereal-normal">
                 Navigation
               </TypographySmall>
               {navigationLinks.map((link) => (
@@ -70,9 +70,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="text-ethereal-subtle flex gap-8 uppercase">
+          <div className="flex gap-8 uppercase text-ethereal-subtle">
             <ul className="flex flex-col gap-2">
-              <TypographySmall className="text-ethereal-normal font-bold">
+              <TypographySmall className="font-bold text-ethereal-normal">
                 Working on
               </TypographySmall>
               {workingOnLinks.map((link) => (
@@ -92,18 +92,18 @@ export default function Footer() {
         <Section>
           <div className="flex flex-col justify-between gap-4 md:flex-row">
             <div className="flex flex-col gap-2">
-              <TypographySmall className="text-ethereal-subtle font-bold">
+              <TypographySmall className="font-bold text-ethereal-subtle">
                 &copy; {currentYear} Space Chunks. All rights reserved.
               </TypographySmall>
 
-              <TypographySmall className="text-mystical-subtle font-bold">
+              <TypographySmall className="font-bold text-mystical-subtle">
                 We are in no way affiliated with or endorsed by Mojang, AB.
               </TypographySmall>
             </div>
             <div className="order-first flex w-full items-center justify-between gap-4 md:order-none md:w-auto">
               <a href="https://github.com/spacechunks" target="_blank">
                 <GithubIcon
-                  className="text-ethereal-subtle h-full w-auto"
+                  className="h-full w-auto text-ethereal-subtle"
                   aria-label="Github"
                 />
               </a>
@@ -112,20 +112,20 @@ export default function Footer() {
           </div>
           <div className="flex justify-between">
             <div className="flex flex-col gap-4 md:flex-row md:gap-12">
-              <Link to="privacy">
-                <TypographySmall className="text-ethereal-subtle font-bold">
+              <Link to="/privacy">
+                <TypographySmall className="font-bold text-ethereal-subtle">
                   Privacy Policy
                 </TypographySmall>
               </Link>
-              <Link to="imprint">
-                <TypographySmall className="text-ethereal-subtle font-bold">
+              <Link to="/imprint">
+                <TypographySmall className="font-bold text-ethereal-subtle">
                   Imprint
                 </TypographySmall>
               </Link>
             </div>
             <Button
               variant="link"
-              className="text-ethereal-subtle uppercase"
+              className="uppercase text-ethereal-subtle"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               Top
