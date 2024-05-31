@@ -1,6 +1,6 @@
 import Section from "~/components/layout/section";
 import gameCupImage from "~/assets/images/game-cup.png";
-import gameCupInfoImage from "~/assets/images/game-cup-info.png";
+import gameCupInfoImage from "~/assets/images/ingame.png";
 import {
   TypographyH1,
   TypographyLead,
