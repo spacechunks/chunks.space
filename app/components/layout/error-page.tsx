@@ -13,11 +13,11 @@ export default function ErrorPage() {
   const error = useRouteError();
 
   return (
-    <div className="dark relative h-screen w-full rounded-b-3xl bg-[#171023] py-8">
+    <div className="dark relative h-screen w-full rounded-b-[2.5rem] bg-[#171023] py-8">
       <div className="relative z-50">
         <Header />
       </div>
-      <div className="absolute top-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
+      <div className="absolute top-0 h-full w-full rounded-b-[2.5rem] bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="absolute top-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
       <div className="absolute bottom-12 flex items-center justify-center px-12">
         <img src={starsImage} alt="Stars" className="h-full" />

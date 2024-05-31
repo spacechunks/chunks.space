@@ -11,11 +11,11 @@ import SmoothLink from "~/components/smooth-link";
 
 export default function IndexHero() {
   return (
-    <div className="relative h-full w-full rounded-b-3xl bg-[#171023] py-8">
+    <div className="relative h-full w-full rounded-b-[2.5rem] bg-[#171023] py-8">
       <div className="relative z-50">
         <Header />
       </div>
-      <div className="absolute top-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
+      <div className="absolute top-0 h-full w-full rounded-b-[2.5rem] bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="absolute top-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
       <div className="absolute bottom-12 flex items-center justify-center px-12">
         <img src={starsImage} alt="Stars" className="h-full" />
@@ -30,7 +30,7 @@ export default function IndexHero() {
           <Link to="/game-cup">
             <div className="absolute h-full w-full rounded-md bg-gradient-to-b from-white via-transparent to-transparent opacity-40 transition-opacity group-hover:opacity-100" />
             <div className="absolute h-full w-full rounded-md bg-[#F3C138] opacity-50 blur-xl transition-opacity group-hover:opacity-60" />
-            <div className="text-mystical-normal relative my-12 text-xs md:text-sm">
+            <div className="relative my-12 text-xs text-mystical-normal md:text-sm">
               <b>Game cup season 1</b> Starting soon. <b>Read more</b>
             </div>
           </Link>
@@ -82,7 +82,7 @@ export default function IndexHero() {
 
         <SmoothLink
           to="/#about"
-          className="text-ethereal-normal group flex cursor-pointer flex-col items-center gap-2"
+          className="group flex cursor-pointer flex-col items-center gap-2 text-ethereal-normal"
         >
           <div className="w-full text-center font-semibold uppercase">
             Explore our universe

@@ -45,7 +45,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#1D182C]">
-      <div className="h-12 rounded-b-full bg-white" />
+      <div className="h-12 rounded-b-[2.5rem] bg-white" />
       <Section className="justify-between py-16 md:flex-row">
         <img
           src={textLogo}

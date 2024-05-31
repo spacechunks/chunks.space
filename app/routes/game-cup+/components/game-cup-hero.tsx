@@ -8,11 +8,11 @@ import SmoothLink from "~/components/smooth-link";
 
 export default function GameCupHero() {
   return (
-    <div className="relative h-full w-full rounded-b-3xl bg-[#171023] py-8">
+    <div className="relative h-full w-full rounded-b-[2.5rem] bg-[#171023] py-8">
       <div className="relative z-50">
         <Header />
       </div>
-      <div className="absolute top-0 h-full w-full rounded-b-3xl bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
+      <div className="absolute top-0 h-full w-full rounded-b-[2.5rem] bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="absolute inset-0 h-full w-full overflow-hidden rounded-lg object-cover">
         <svg
           viewBox="0 0 1440 500"
@@ -42,7 +42,7 @@ export default function GameCupHero() {
       </div>
       <div className="container relative flex w-full justify-between py-12">
         <div className="flex w-full max-w-2xl flex-col gap-4">
-          <TypographyH1 className="text-ethereal-normal mt-12 flex flex-col gap-2 text-5xl">
+          <TypographyH1 className="mt-12 flex flex-col gap-2 text-5xl text-ethereal-normal">
             <span>Create and Compete:</span>
             <span>
               Win <span className="text-secondary">€150</span> with your

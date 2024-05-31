@@ -14,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
+import ingameImage from "~/assets/images/ingame.png";
 
 const tabs = [
   {
@@ -43,9 +44,9 @@ export default function AboutSection() {
       <div className="flex flex-1 flex-col gap-4">
         <TypographyH1>What is Space Chunks?</TypographyH1>
         <TypographyP>
-        We are a creative and development team with a community of server owners, 
-        developers, and game designers. Our mission is to create a vibrant space with 
-        competitive events and free resources.
+          We are a creative and development team with a community of server
+          owners, developers, and game designers. Our mission is to create a
+          vibrant space with competitive events and free resources.
         </TypographyP>
 
         <Accordion
@@ -64,7 +65,13 @@ export default function AboutSection() {
           ))}
         </Accordion>
       </div>
-      <div className="bg-wild-sand-100 min-h-64 flex-1 rounded-lg"></div>
+      <div className="flex-1 rounded-lg bg-wild-sand-100 md:min-h-64">
+        <img
+          src={ingameImage}
+          alt="Ingame"
+          className="h-full w-full rounded-lg object-cover"
+        />
+      </div>
     </Section>
   );
 }
@@ -89,7 +96,7 @@ function Tab({
       {isActive && (
         <motion.span
           layoutId="bubble"
-          className="bg-wild-sand-50 absolute inset-0 h-full rounded-lg"
+          className="absolute inset-0 h-full rounded-lg bg-wild-sand-50"
           transition={{
             type: "spring",
             bounce: 0.2,
