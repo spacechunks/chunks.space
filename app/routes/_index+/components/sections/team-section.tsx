@@ -16,7 +16,7 @@ const teamMembers = [
   {
     name: "Fllip",
     role: "Lead Developer",
-    text: "My job is to ensure that everything works as intended and every developer has a fun time working on the project.",
+    text: "I organize events and make sure that every developer has a fun time working on the project.",
   },
   {
     name: "Freggyy",
@@ -60,7 +60,7 @@ export default function TeamSection() {
         {teamMembers.map((member) => (
           <li
             key={member.name}
-            className="bg-wild-sand-50 relative mx-auto flex h-52 flex-col items-center gap-2 rounded-lg p-8"
+            className="relative mx-auto flex h-52 flex-col items-center gap-2 rounded-lg bg-wild-sand-50 p-8"
           >
             <img
               className="absolute -top-10 h-16 w-16 rounded-lg"
