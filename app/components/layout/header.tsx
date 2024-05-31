@@ -21,7 +21,7 @@ import { Link } from "@remix-run/react";
 const links = [
   { name: "Start", to: "/" },
   { name: "About", to: "/#about" },
-  { name: "Game Cup", to: "/#game-cup" },
+  { name: "Game Cup", to: "/game-cup" },
   { name: "Team", to: "/#team" },
   { name: "FAQ", to: "/#faq" },
   { name: "Contact", to: "/#contact" },
@@ -90,7 +90,7 @@ function HeaderLinks({
           to={link.to}
           className={cn(
             background &&
-              "bg-mystical-normal w-full rounded-lg py-3 text-center text-white",
+              "w-full rounded-lg bg-mystical-normal py-3 text-center text-white",
           )}
           onClick={close}
           delay={background ? 250 : 10}
@@ -106,7 +106,7 @@ function SocialLinks() {
   return (
     <>
       <a href="https://github.com/spacechunks" target="_blank">
-        <GithubIcon className="text-ethereal-normal h-6 w-auto" />
+        <GithubIcon className="h-6 w-auto text-ethereal-normal" />
       </a>
       <DiscordButton />
     </>

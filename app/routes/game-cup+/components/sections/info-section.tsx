@@ -1,7 +1,6 @@
 import Section from "~/components/layout/section";
 import gameCupImage from "~/assets/images/game-cup.png";
 import gameCupInfoImage from "~/assets/images/game-cup-info.png";
-import roadmapImage from "~/assets/images/roadmap.png";
 import {
   TypographyH1,
   TypographyLead,
@@ -9,7 +8,6 @@ import {
 } from "~/components/ui/typography";
 import { Button } from "~/components/ui/button";
 import { ExternalLink } from "lucide-react";
-import { Link } from "@remix-run/react";
 
 export default function InfoSection() {
   return (
@@ -58,13 +56,13 @@ export default function InfoSection() {
         </div>
       </div>
       <div className="flex w-full flex-col gap-2 md:flex-row">
-        <Link
-          to="/roadmap.png"
+        <a
+          href="https://cdn.chunks.cloud/gamecup/roadmap.png"
           className="group relative min-h-64 rounded-lg bg-[#1D182C] p-2"
           target="_blank"
         >
           <img
-            src={roadmapImage}
+            src="https://cdn.chunks.cloud/gamecup/roadmap.png"
             alt="Roadmap"
             className="h-full w-full rounded-lg object-cover"
           />
@@ -74,15 +72,15 @@ export default function InfoSection() {
               <span>Roadmap - Event Schedule</span>
             </div>
           </div>
-        </Link>
-        <Link
-          to="/rules.png"
+        </a>
+        <a
+          href="https://cdn.chunks.cloud/gamecup/rules_and_guidelines.png"
           className="group relative min-h-64 rounded-lg bg-[#1D182C] p-2"
           target="_blank"
         >
           <img
-            src={roadmapImage}
-            alt="Roadmap"
+            src="https://cdn.chunks.cloud/gamecup/rules_and_guidelines.png"
+            alt="Rules and Guidelines"
             className="h-full w-full rounded-lg object-cover"
           />
           <div className="absolute inset-0 flex h-full w-full flex-col justify-end rounded-lg bg-gradient-to-t from-[#1D182C] from-20% to-[#1D182C]/0 p-8 text-xl text-ethereal-normal">
@@ -91,7 +89,7 @@ export default function InfoSection() {
               <span>Rules and Guidelines</span>
             </div>
           </div>
-        </Link>
+        </a>
       </div>
     </Section>
   );
