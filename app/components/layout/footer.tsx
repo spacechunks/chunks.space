@@ -13,7 +13,7 @@ const navigationLinks = [
   },
   {
     title: "Game Cup",
-    href: "/#game-cup",
+    href: "/game-cup",
   },
   {
     title: "Team",
@@ -22,6 +22,11 @@ const navigationLinks = [
   {
     title: "FAQ",
     href: "/#faq",
+  },
+  {
+    title: "Project Board",
+    href: "https://board.chunks.space/",
+    target: "_blank",
   },
 ];
 
@@ -60,7 +65,7 @@ export default function Footer() {
               </TypographySmall>
               {navigationLinks.map((link) => (
                 <li key={link.title}>
-                  <Link to={link.href}>
+                  <Link to={link.href} target={link.target}>
                     <TypographySmall className="font-bold">
                       {link.title}
                     </TypographySmall>
