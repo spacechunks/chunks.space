@@ -10,13 +10,13 @@ import {
 const teamMembers = [
   {
     name: "EgyBoy",
-    role: "Lead Designer & Model Artist",
-    text: "I'm here to make sure everything looks good and is fun to play!",
+    role: "Lead Creative",
+    text: "I’m cooking up the next creative plans & making sure everything in-game and in our branding looks fantastic!",
   },
   {
     name: "Fllip",
     role: "Lead Developer",
-    text: "I organize events and make sure that every developer has a fun time working on the project.",
+    text: "I’m the captain of the developer team, ensuring everyone enjoys their work. I also host events like the Game Cup!",
   },
   {
     name: "Freggyy",
@@ -49,11 +49,11 @@ export default function TeamSection() {
   return (
     <Section id="team" className="gap-20">
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 text-center">
-        <TypographyH1>Our Team</TypographyH1>
+        <TypographyH1>Meet the Team</TypographyH1>
         <TypographyLead>
-          Meet the team behind the scenes of Space Chunks! We are a group of
-          passionate designers, developers, and creators who are dedicated to
-          making the best experience for you.
+        Behind Space Chunks is a team of passionate designers, developers, 
+        and creators. Learn about the people who are always eager to make 
+        cool things happen!
         </TypographyLead>
       </div>
       <ul className="flex w-full flex-wrap items-center justify-center gap-8 gap-y-28">

@@ -20,13 +20,13 @@ const tabs = [
     title: "Creative",
     id: "creative",
     description:
-      "All of our projects are created with the goal of providing a unique experience for players. We strive to create something that is both fun and engaging.",
+      "All our projects are designed to provide a unique player experience. We aim to make everything look amazing and be incredibly user-friendly.",
   },
   {
     title: "Development",
     id: "development",
     description:
-      "Our team is made up of developers who are passionate about creating unique experiences for Minecraft. We are constantly working on new projects and features to improve the player experience.",
+      "We’re a team of passionate developers always on the hunt for improvement and innovation. We’re constantly working on exciting projects and experimenting with new techniques.",
   },
   {
     title: "Events",
@@ -43,9 +43,9 @@ export default function AboutSection() {
       <div className="flex flex-1 flex-col gap-4">
         <TypographyH1>What is Space Chunks?</TypographyH1>
         <TypographyP>
-          We are a team of developers, designers, and event organizers who are
-          passionate about creating unique experiences for Minecraft. Our goal
-          is to have fun and create something that we can all be proud of.
+        We are a creative and development team with a community of server owners, 
+        developers, and game designers. Our mission is to create a vibrant space with 
+        competitive events and free resources.
         </TypographyP>
 
         <Accordion
