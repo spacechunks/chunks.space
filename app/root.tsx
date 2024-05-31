@@ -11,6 +11,7 @@ import firaSans from "~/fira-sans.css?url";
 import { LinksFunction } from "@remix-run/node";
 import { getDiscordGuildInfo } from "~/service/discord.server";
 import ErrorPage from "~/components/layout/error-page";
+import { Toaster } from "~/components/ui/sonner";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -47,6 +48,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="bg-[#171323]">
         {children}
+        <Toaster
+          toastOptions={{
+            unstyled: true,
+            className:
+              "bg-ethereal-normal  text-mystical-normal flex items-center gap-4 p-4 rounded-lg",
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
       </body>
