@@ -66,7 +66,7 @@ export default function GameCupHero() {
             </Button>
           </div>
         </div>
-        <div className="min-w-1/3 relative w-full flex-1">
+        <div className="min-w-1/3 relative w-full flex-1 select-none">
           <motion.img
             src={gameCupImage}
             alt="Game Cup"

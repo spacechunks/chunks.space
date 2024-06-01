@@ -13,10 +13,10 @@ export default function LegalHero() {
       </div>
       <div className="absolute top-0 h-full w-full rounded-b-[2.5rem] bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="absolute top-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
-      <div className="absolute bottom-12 flex items-center justify-center px-12">
+      <div className="absolute bottom-12 flex select-none items-center justify-center px-12">
         <img src={starsImage} alt="Stars" className="h-full" />
       </div>
-      <div className="relative z-10 flex h-full flex-col items-center gap-8 py-8">
+      <div className="relative z-10 flex h-full select-none flex-col items-center gap-8 py-8">
         <div className="relative">
           <div
             className="relative h-96 w-full overflow-hidden"
@@ -33,7 +33,7 @@ export default function LegalHero() {
             <motion.img
               src={textLogoImage}
               alt="Space Chunks"
-              className="relative z-10 h-full w-full object-contain"
+              className="relative z-10 h-full w-full select-none object-contain"
             />
             <div
               className="absolute inset-0 z-10 overflow-hidden"
@@ -68,7 +68,7 @@ export default function LegalHero() {
 
 function HeroStones() {
   return (
-    <div className="absolute hidden h-full w-full items-center justify-center md:flex">
+    <div className="absolute hidden h-full w-full select-none items-center justify-center md:flex">
       <div className="container relative h-full w-full">
         <Stone
           variant="1"
