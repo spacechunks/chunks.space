@@ -40,6 +40,12 @@ export default function ImprintPage() {
           entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen
           werden wir derartige Inhalte umgehend entfernen.
         </p>
+
+        <p>
+          Dieses Impressum gilt auch für die Webseiten{" "}
+          <a href="https://simplecloud.app">simplecloud.app</a> und{" "}
+          <a href="https://strela.dev">strela.dev</a>.
+        </p>
       </div>
     </Section>
   );
