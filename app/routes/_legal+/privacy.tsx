@@ -5,7 +5,7 @@ export default function PrivacyPage() {
   return (
     <Section>
       <TypographyH1>Datenschutzerklärung</TypographyH1>
-      <div className="prose">
+      <div className="prose container">
         <h2>1. Datenschutz auf einen Blick</h2>
         <h3>Allgemeine Hinweise</h3>{" "}
         <p>

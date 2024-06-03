@@ -5,7 +5,7 @@ export default function ImprintPage() {
   return (
     <Section>
       <TypographyH1>Impressum</TypographyH1>
-      <div className="prose">
+      <div className="prose container">
         <p>
           Ekhlas Ahmed
           <br />
