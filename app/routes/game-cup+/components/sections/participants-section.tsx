@@ -52,26 +52,6 @@ export const participants: {
     points: 0,
     members: [],
   },
-  {
-    name: "Team 9",
-    points: 0,
-    members: [],
-  },
-  {
-    name: "Team 10",
-    points: 0,
-    members: [],
-  },
-  {
-    name: "Team 11",
-    points: 0,
-    members: [],
-  },
-  {
-    name: "Team 12",
-    points: 0,
-    members: [],
-  },
 ];
 
 export default function ParticipantsSection() {
@@ -84,22 +64,23 @@ export default function ParticipantsSection() {
         {participants.map((team, index) => (
           <div key={index} className="flex flex-col">
             <div className="flex items-center justify-between rounded-t-lg bg-primary px-4 py-3">
-              <TypographyLarge className="text-ethereal-normal font-medium uppercase">
+              <TypographyLarge className="font-medium uppercase text-ethereal-normal">
                 {team.name}
               </TypographyLarge>
               <span className="text-[#F4BAEF]">{team.points} Points</span>
             </div>
-            <div className="bg-wild-sand-100 grid grid-flow-row auto-rows-fr grid-rows-4 rounded-b-lg">
+            <div className="grid grid-flow-row auto-rows-fr grid-rows-4 rounded-b-lg bg-wild-sand-100">
               {[
                 ...team.members,
                 ...Array(4 - team.members.length).fill(
                   !team.doNotExtendMembers ? unknownMember : undefined,
                 ),
               ].map((member, index) => (
-                <div key={index}
+                <div
+                  key={index}
                   className={cn(
                     "flex h-full items-center gap-1 px-4 py-2",
-                    index < 3 && "border-wild-sand-200 border-b",
+                    index < 3 && "border-b border-wild-sand-200",
                   )}
                 >
                   {member ? (
@@ -111,7 +92,7 @@ export default function ParticipantsSection() {
                       />
                       <h4
                         key={index}
-                        className="text-mystical-normal px-4 py-2 font-semibold"
+                        className="px-4 py-2 font-semibold text-mystical-normal"
                       >
                         {member?.name ?? "Unknown"}
                       </h4>
