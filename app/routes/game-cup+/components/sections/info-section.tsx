@@ -33,7 +33,7 @@ export default function InfoSection() {
             Apply on our discord
           </Button>
         </div>
-        <div className="relative hidden w-full md:block">
+        <div className="relative hidden max-h-[548px] w-full md:block">
           <img
             src={gameCupInfoImage}
             alt="Game Cup Info"
