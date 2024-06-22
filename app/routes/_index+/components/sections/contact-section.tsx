@@ -70,7 +70,7 @@ export default function ContactSection() {
           src={logoImage}
           alt="Space Chunks"
           // className="absolute -top-16 right-0 h-28 w-auto md:-top-40 md:h-56"
-          className="absolute -top-16 h-56 w-auto md:-top-40"
+          className="absolute -top-12 h-28 w-auto md:-top-32 md:h-56"
           variants={rocketVariants}
           initial="initial"
           animate={successfullySent ? "fly" : ""}
