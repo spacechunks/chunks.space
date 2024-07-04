@@ -5,6 +5,7 @@ import { cn } from "~/lib/utils";
 type Member = { name: string; skinName?: string };
 
 const unknownMember = { name: "Unknown", skinName: "s" };
+const emptyMember = { name: "", skinName: "s" };
 
 export const participants: {
   name: string;
@@ -13,44 +14,123 @@ export const participants: {
   doNotExtendMembers?: boolean;
 }[] = [
   {
-    name: "Team 1",
+    name: "Die Granaten",
     points: 0,
-    members: [],
+    members: [
+      {
+        name: "HttpMarco",
+        skinName: "HttpMarco",
+      },
+
+      {
+        name: "Nico_ND1",
+        skinName: "Nico_ND1",
+      },
+      {
+        name: "Snowflake",
+        skinName: "Snowflake",
+      },
+      emptyMember,
+    ],
   },
   {
-    name: "Team 2",
+    name: "Team Extreme",
     points: 0,
-    members: [],
+    members: [
+      {
+        name: "EgyBoy",
+        skinName: "EgyBoy",
+      },
+
+      {
+        name: "MrManHD",
+        skinName: "MrManHD",
+      },
+      emptyMember,
+      emptyMember,
+    ],
   },
   {
-    name: "Team 3",
+    name: "Team Eagle",
     points: 0,
-    members: [],
+    members: [
+      {
+        name: "Wetterbericht",
+        skinName: "Wetterbericht",
+      },
+
+      {
+        name: "daviidooo",
+        skinName: "daviidooo",
+      },
+      emptyMember,
+      emptyMember,
+    ],
   },
   {
-    name: "Team 4",
+    name: "Team Rocket",
     points: 0,
-    members: [],
+    members: [
+      {
+        name: "D151l",
+        skinName: "D151l",
+      },
+
+      {
+        name: "EinsLucaaa",
+        skinName: "EinsLucaaa",
+      },
+      emptyMember,
+      emptyMember,
+    ],
   },
   {
-    name: "Team 5",
+    name: "Team 240kmh",
     points: 0,
-    members: [],
+    members: [
+      {
+        name: "freggyy",
+        skinName: "freggyy",
+      },
+      {
+        name: "Ulfgerstenkorn",
+        skinName: "Ulfgerstenkorn",
+      },
+      emptyMember,
+      emptyMember,
+    ],
   },
   {
-    name: "Team 6",
+    name: "Team Dyhntastic",
     points: 0,
-    members: [],
+    members: [
+      {
+        name: "DyhnenTv",
+        skinName: "DyhnenTv",
+      },
+      {
+        name: "padbop",
+        skinName: "padbop",
+      },
+      emptyMember,
+      emptyMember,
+    ],
   },
   {
-    name: "Team 7",
+    name: "Team SweriDNS",
     points: 0,
-    members: [],
-  },
-  {
-    name: "Team 8",
-    points: 0,
-    members: [],
+    members: [
+      {
+        name: "FlxwDNS",
+        skinName: "FlxwDNS",
+      },
+      {
+        name: "Swerion",
+        skinName: "Swerion",
+      },
+      emptyMember,
+      emptyMember,
+    ],
   },
 ];
 

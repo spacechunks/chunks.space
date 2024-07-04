@@ -30,10 +30,16 @@ export default function InfoSection() {
             variant="tertiary"
             size="lg"
           >
-            Apply on our discord
+            <a
+              href="https://discord.chunks.space"
+              className="flex cursor-pointer items-center gap-3"
+              target="_blank"
+            >
+              Apply on our discord
+            </a>
           </Button>
         </div>
-        <div className="relative hidden max-h-[548px] w-full md:block">
+        <div className="relative hidden max-h-[640px] w-full md:block">
           <img
             src={gameCupInfoImage}
             alt="Game Cup Info"
