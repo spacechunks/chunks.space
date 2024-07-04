@@ -27,8 +27,8 @@ export const participants: {
         skinName: "Nico_ND1",
       },
       {
-        name: "Sn0wfl4ke",
-        skinName: "Sn0wfl4ke",
+        name: "Sno0wFl4ke",
+        skinName: "Sno0wFl4ke",
       },
       emptyMember,
     ],
