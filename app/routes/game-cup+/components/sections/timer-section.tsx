@@ -31,17 +31,18 @@ export default function TimerSection() {
       <div className="mx-auto flex w-full flex-col items-center justify-between gap-5 rounded-lg bg-[#E8DDFF] p-[20px_10px_10px_10px] text-center sm:gap-10 sm:p-[50px_40px_40px_40px] md:flex-row xl:gap-20">
         <div className="flex flex-col items-center justify-center text-center sm:gap-3 xl:justify-start xl:text-left">
           <TypographyH1 className="w-full">
-            <span className="xl:text-[64px]">SEASON 1</span>
+            <span className="xl:text-[64px]">SEASON 2</span>
           </TypographyH1>
           <TypographyLead className="w-full">
             <span className="text-sm sm:text-base xl:text-[24px] xl:font-[500]">
-              Starting on{" "}
-              {Intl.DateTimeFormat("en-US", {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              }).format(gameCupDate)}
+              Announcement later this year
+              {/*Starting on{" "}*/}
+              {/*{Intl.DateTimeFormat("en-US", {*/}
+              {/*  weekday: "long",*/}
+              {/*  day: "numeric",*/}
+              {/*  month: "long",*/}
+              {/*  year: "numeric",*/}
+              {/*}).format(gameCupDate)}*/}
             </span>
           </TypographyLead>
         </div>
@@ -50,16 +51,19 @@ export default function TimerSection() {
             first={currentDays > 9 ? Math.floor(currentDays / 10) : 0}
             second={currentDays % 10}
             text={"DAYS"}
+            hide={true}
           />
           <TimerCard
             first={currentHours > 9 ? Math.floor(currentHours / 10) : 0}
             second={currentHours % 10}
             text={"HOURS"}
+            hide={true}
           />
           <TimerCard
             first={currentMinutes > 9 ? Math.floor(currentMinutes / 10) : 0}
             second={currentMinutes % 10}
             text={"MINUTES"}
+            hide={true}
           />
         </div>
       </div>
@@ -71,18 +75,20 @@ function TimerCard({
   first,
   second,
   text,
+  hide,
 }: {
   first: number;
   second: number;
   text: string;
+  hide?: boolean;
 }) {
   return (
     <div className={"space-y-2"}>
       <div
         className={"flex items-center justify-center gap-[7px] xl:gap-[15px]"}
       >
-        <TimerDigit digit={first} />
-        <TimerDigit digit={second} />
+        <TimerDigit digit={first} hide={hide} />
+        <TimerDigit digit={second} hide={hide} />
       </div>
       <span
         className={
@@ -95,7 +101,7 @@ function TimerCard({
   );
 }
 
-function TimerDigit({ digit }: { digit: number }) {
+function TimerDigit({ digit, hide }: { digit: number; hide?: boolean }) {
   const [transform, setTransform] = useState("translate-y-0");
   useEffect(() => {
     switch (digit) {
@@ -163,7 +169,7 @@ function TimerDigit({ digit }: { digit: number }) {
             transform,
           )}
         >
-          0 1 2 3 4 5 6 7 8 9
+          {hide ? "?" : "0 1 2 3 4 5 6 7 8 9"}
         </div>
       </div>
     </div>
