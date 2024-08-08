@@ -4,10 +4,10 @@ import ParticipantsSection from "~/routes/game-cup+/components/sections/particip
 import TimerSection from "~/routes/game-cup+/components/sections/timer-section";
 import type { MetaFunction } from "@remix-run/node";
 import GameCupHero from "~/routes/game-cup+/components/game-cup-hero";
-import InfoSection from "~/routes/game-cup+/components/sections/info-section";
 import ogFacebook from "~/assets/images/og-game-cup-facebook.png";
 import ogTwitter from "~/assets/images/og-game-cup-twitter.png";
 import ApplySection from "~/routes/game-cup+/components/sections/apply-section";
+import FinaleSection from "~/routes/game-cup+/components/sections/finale-section";
 
 export const meta: MetaFunction = () => {
   return [
@@ -54,7 +54,8 @@ export default function GameCupPage() {
     <div className="flex flex-col gap-20 bg-white">
       <GameCupHero />
       <TimerSection />
-      <InfoSection />
+      {/*<InfoSection />*/}
+      <FinaleSection />
       <ParticipantsSection />
       <FaqSection />
       <ApplySection />

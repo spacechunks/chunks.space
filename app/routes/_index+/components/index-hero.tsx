@@ -31,7 +31,7 @@ export default function IndexHero() {
             <div className="absolute h-full w-full rounded-md bg-gradient-to-b from-white via-transparent to-transparent opacity-40 transition-opacity group-hover:opacity-100" />
             <div className="absolute h-full w-full rounded-md bg-[#F3C138] opacity-50 blur-xl transition-opacity group-hover:opacity-60" />
             <div className="relative my-12 text-xs text-mystical-normal md:text-sm">
-              <b>Game cup season 1</b> Starting soon. <b>Read more</b>
+              <b>Game cup season 1</b> stats available. <b>Read more</b>
             </div>
           </Link>
         </Button>
