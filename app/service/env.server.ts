@@ -3,6 +3,8 @@ import { z } from "zod";
 const schema = z.object({
   NODE_ENV: z.enum(["production", "development", "test"] as const),
   CONTACT_DISCORD_WEBHOOK: z.string(),
+  GHOST_API_URL: z.string(),
+  GHOST_ADMIN_API_KEY: z.string(),
 });
 
 declare global {
