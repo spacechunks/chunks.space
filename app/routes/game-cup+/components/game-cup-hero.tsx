@@ -1,5 +1,5 @@
 import gameCupImage from "~/assets/images/game-cup.png";
-import Header from "~/components/layout/header";
+import HeaderLinks from "~/components/layout/header-links";
 import { motion } from "framer-motion";
 import * as React from "react";
 import { TypographyH1, TypographyP } from "~/components/ui/typography";
@@ -10,7 +10,7 @@ export default function GameCupHero() {
   return (
     <div className="relative h-full w-full rounded-b-[2.5rem] bg-[#171023] py-8">
       <div className="relative z-50">
-        <Header />
+        <HeaderLinks />
       </div>
       <div className="absolute top-0 h-full w-full rounded-b-[2.5rem] bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="absolute inset-0 h-full w-full overflow-hidden rounded-lg object-cover">

@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router";
-import Header from "~/components/layout/header";
+import HeaderLinks from "~/components/layout/header-links";
 import starsImage from "~/assets/images/stars.png";
 import textLogoImage from "~/assets/images/text-logo.png";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ export default function ErrorPage() {
   return (
     <div className="dark relative h-screen w-full rounded-b-[2.5rem] bg-[#171023] py-8">
       <div className="relative z-50">
-        <Header />
+        <HeaderLinks />
       </div>
       <div className="absolute top-0 h-full w-full rounded-b-[2.5rem] bg-gradient-to-t from-[#5229CA] to-transparent opacity-20" />
       <div className="absolute top-0 h-full w-full bg-gradient-radial from-[#FF00F5] via-[#BD00FF]/15 to-[#BD00FF]/0 opacity-20" />
