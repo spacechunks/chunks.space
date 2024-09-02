@@ -12,7 +12,7 @@ export default function FeaturedPost({
   return (
     <Link
       to={`/blog/posts/${featuredPost.slug}`}
-      className="grid grid-cols-2 gap-12"
+      className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-12"
     >
       <img
         className="aspect-video rounded-lg"

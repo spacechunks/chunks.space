@@ -27,7 +27,16 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const posts = await ghostApi.posts.browse({
     limit: ITEMS_PER_PAGE,
     page: page,
-    // fields: ["id", "slug", "title", "feature_image", "featured"],
+    fields: [
+      "id",
+      "slug",
+      "title",
+      "feature_image",
+      "featured",
+      "published_at",
+      "meta_description",
+      "primary_tag",
+    ],
     include: ["tags"],
     filter:
       tagsToFilter.length > 0
@@ -48,6 +57,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   const tags = await ghostApi.tags.browse({
     limit: "all",
+    fields: ["id", "name", "slug"],
   });
 
   const sortedPostsByDate = posts.sort((a, b) => {
@@ -92,7 +102,7 @@ export default function BlogPage() {
               const isSelected = tagsToFilter.includes(tag.slug);
 
               return (
-                <Form key={tag.id} method="get" preventScrollReset>
+                <Form key={tag.id} method="get" preventScrollReset replace>
                   {tagsToFilter
                     .filter((filteredTag) => filteredTag !== tag.slug)
                     .map((filteredTag) => (
@@ -126,7 +136,7 @@ export default function BlogPage() {
               );
             })}
           </div>
-          <Form method="get" preventScrollReset>
+          <Form method="get" preventScrollReset replace>
             <Button
               size="sm"
               variant="muted"

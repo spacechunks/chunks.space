@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ghost-tailwind.css */
+
+/* Base styles for kg-card */
+.kg-card {
+    @apply my-8 rounded-xl overflow-hidden;
+}
+
+/* Styles for kg-callout-card */
+.kg-callout-card {
+    @apply flex items-start p-6;
+}
+
+/* Color variations */
+.kg-callout-card-grey {
+    @apply bg-wild-sand-100;
+}
+
+.kg-callout-card-white {
+    @apply bg-white border border-gray-200 text-mystical-normal;
+}
+
+.kg-callout-card-blue {
+    @apply bg-blue-100 text-mystical-normal;
+}
+
+.kg-callout-card-green {
+    @apply bg-green-100 text-mystical-normal;
+}
+
+.kg-callout-card-yellow {
+    @apply bg-yellow-100 text-mystical-normal;
+}
+
+.kg-callout-card-red {
+    @apply bg-red-100 text-mystical-normal;
+}
+
+.kg-callout-card-pink {
+    @apply bg-pink-100 text-mystical-normal;
+}
+
+.kg-callout-card-purple {
+    @apply bg-[#E8DDFF] text-mystical-normal;
+}
+
+.kg-callout-card-accent {
+    @apply bg-primary text-primary-foreground;
+}
+
+/* Styles for callout emoji */
+.kg-callout-emoji {
+    @apply text-2xl mr-4;
+}
+
+/* Styles for callout text */
+.kg-callout-text {
+    @apply text-lg font-medium;
+}
+
+
 @layer base {
     :root {
         --background: 0 0% 100%;

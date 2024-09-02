@@ -1,27 +1,49 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { ghostApi } from "~/service/ghost.server";
-import { ensureHttps } from "~/lib/utils";
+import { ensureHttps, getTwoLettersOfName } from "~/lib/utils";
 import {
   TypographyH1,
-  TypographyH2,
   TypographyP,
   TypographyProse,
 } from "~/components/ui/typography";
 import PostInfo from "~/routes/blog+/components/post-info";
-import { Button } from "~/components/ui/button";
-import Post from "~/routes/blog+/components/post";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import OtherPosts from "~/routes/blog+/components/other-posts";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params.slug || "";
 
   const post = await ghostApi.posts.read(
     { slug },
-    { include: ["authors", "tags"] },
+    {
+      fields: [
+        "id",
+        "slug",
+        "title",
+        "feature_image",
+        "published_at",
+        "meta_description",
+        "html",
+        "primary_tag",
+        "reading_time",
+      ],
+      include: ["authors", "tags"],
+    },
   );
 
   const posts = await ghostApi.posts.browse({
     limit: "3",
+    fields: [
+      "id",
+      "slug",
+      "title",
+      "feature_image",
+      "published_at",
+      "meta_description",
+      "primary_tag",
+      "reading_time",
+    ],
     include: ["tags"],
   });
 
@@ -39,18 +61,19 @@ export default function PostPage() {
         <div className="mt-4">
           {post.authors?.map((author) => (
             <div key={author.id} className="flex items-center gap-2">
-              <img
-                className="rounded-kg w-lg h-6 object-cover"
-                src={ensureHttps(author.profile_image || "")}
-                alt="author"
-              />
+              <Avatar className="h-6 w-6 rounded">
+                <AvatarImage src={ensureHttps(author.profile_image || "")} />
+                <AvatarFallback className="rounded text-xs">
+                  {getTwoLettersOfName(author.name || "unknown")}
+                </AvatarFallback>
+              </Avatar>
               <span>{author.name}</span>
             </div>
           ))}
         </div>
       </div>
       <img
-        className="h-full w-full rounded-lg object-cover"
+        className="h-full w-full rounded-xl object-cover"
         src={ensureHttps(post.feature_image || "")}
         alt="post"
       />
@@ -65,24 +88,7 @@ export default function PostPage() {
         </TypographyProse>
       </div>
 
-      <div className="space-y-6">
-        <TypographyH2 className="text-4xl font-bold">
-          All Articles from the Universe
-        </TypographyH2>
-        <ul className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {posts.map((currentPost) => (
-            <li key={post.id}>
-              <Post post={currentPost} />
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex w-full items-center justify-center">
-          <Button size="big" variant="tertiary" asChild>
-            <Link to="/blog/">Show all articles</Link>
-          </Button>
-        </div>
-      </div>
+      <OtherPosts title="All Articles from the Universe" posts={posts} />
     </div>
   );
 }

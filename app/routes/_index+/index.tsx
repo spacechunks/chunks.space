@@ -2,7 +2,6 @@ import { ActionFunctionArgs, json, MetaFunction } from "@remix-run/node";
 import IndexHero from "~/routes/_index+/components/index-hero";
 import Footer from "~/components/layout/footer";
 import AboutSection from "~/routes/_index+/components/sections/about-section";
-import ExperienceSection from "~/routes/_index+/components/sections/experience-section";
 import GameCupSection from "~/routes/_index+/components/sections/game-cup-section";
 import TeamSection from "~/routes/_index+/components/sections/team-section";
 import FaqSection from "~/routes/_index+/components/sections/faq-section";
@@ -12,6 +11,9 @@ import ogTwitter from "~/assets/images/og-twitter.png";
 import { parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { logContactForm } from "~/service/contact.server";
+import { ghostApi } from "~/service/ghost.server";
+import { useLoaderData } from "@remix-run/react";
+import BlogSection from "./components/sections/blog-section";
 
 export const meta: MetaFunction = () => {
   return [
@@ -53,6 +55,25 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function loader() {
+  const posts = await ghostApi.posts.browse({
+    limit: "3",
+    fields: [
+      "id",
+      "slug",
+      "title",
+      "feature_image",
+      "published_at",
+      "meta_description",
+      "primary_tag",
+      "reading_time",
+    ],
+    include: ["tags"],
+  });
+
+  return { posts };
+}
+
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
 
@@ -71,11 +92,13 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Index() {
+  const { posts } = useLoaderData<typeof loader>();
+
   return (
     <div className="flex flex-col gap-20 bg-white">
       <IndexHero />
       <AboutSection />
-      <ExperienceSection />
+      <BlogSection posts={posts} />
       <GameCupSection />
       <TeamSection />
       <FaqSection />

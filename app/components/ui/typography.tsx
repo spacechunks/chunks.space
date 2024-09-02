@@ -16,7 +16,7 @@ export function TypographyH1({
     <h1
       {...props}
       className={cn(
-        "scroll-m-20 font-fira-sans text-4xl font-extrabold tracking-wide text-mystical-normal dark:text-ethereal-normal lg:text-5xl",
+        "scroll-m-20 font-fira-sans text-3xl font-extrabold tracking-wide text-mystical-normal dark:text-ethereal-normal md:text-4xl lg:text-5xl",
         className,
       )}
     >
@@ -208,7 +208,7 @@ export function TypographyProse({
     <p
       {...props}
       className={cn(
-        "prose-headings:text-mystical-normal prose-a:text-primary prose",
+        "prose prose-headings:text-mystical-normal prose-a:text-primary prose-figcaption:flex prose-figcaption:justify-center prose-img:rounded-xl prose-hr:mx-auto prose-hr:max-w-lg",
         className,
       )}
     >
