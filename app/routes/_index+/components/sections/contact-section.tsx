@@ -137,6 +137,13 @@ export default function ContactSection() {
             buttonProps={getInputProps(fields.privacy, { type: "checkbox" })}
             errors={fields.privacy.errors}
           />
+          <input
+            type="text"
+            name="website"
+            style={{ display: "none" }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </div>
         <div>
           <Button variant="secondary" size="lg" className="px-16 uppercase">
