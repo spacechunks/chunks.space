@@ -21,6 +21,7 @@ import { Link } from "@remix-run/react";
 const links = [
   { name: "Start", to: "/" },
   { name: "About", to: "/#about" },
+  { name: "Blog", to: "/blog" },
   { name: "Game Cup", to: "/game-cup" },
   { name: "Team", to: "/#team" },
   { name: "FAQ", to: "/#faq" },

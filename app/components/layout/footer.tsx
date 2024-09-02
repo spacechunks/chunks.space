@@ -12,6 +12,10 @@ const navigationLinks = [
     href: "/#about",
   },
   {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
     title: "Game Cup",
     href: "/game-cup",
   },
@@ -75,22 +79,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="flex gap-8 uppercase text-ethereal-subtle">
-            <ul className="flex flex-col gap-2">
-              <TypographySmall className="font-bold text-ethereal-normal">
-                Working on
-              </TypographySmall>
-              {workingOnLinks.map((link) => (
-                <li key={link.title}>
-                  <a href={link.href} target="_blank">
-                    <TypographySmall className="font-bold">
-                      {link.title}
-                    </TypographySmall>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/*<div className="flex gap-8 uppercase text-ethereal-subtle">*/}
+          {/*  <ul className="flex flex-col gap-2">*/}
+          {/*    <TypographySmall className="font-bold text-ethereal-normal">*/}
+          {/*      Working on*/}
+          {/*    </TypographySmall>*/}
+          {/*    {workingOnLinks.map((link) => (*/}
+          {/*      <li key={link.title}>*/}
+          {/*        <a href={link.href} target="_blank">*/}
+          {/*          <TypographySmall className="font-bold">*/}
+          {/*            {link.title}*/}
+          {/*          </TypographySmall>*/}
+          {/*        </a>*/}
+          {/*      </li>*/}
+          {/*    ))}*/}
+          {/*  </ul>*/}
+          {/*</div>*/}
         </div>
       </Section>
       <div className="bg-[#171323] uppercase">
