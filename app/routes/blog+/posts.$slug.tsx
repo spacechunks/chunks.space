@@ -1,4 +1,4 @@
-import { json, type LoaderFunctionArgs } from "@remix-run/node";
+import { json, MetaFunction, type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ghostApi } from "~/service/ghost.server";
 import { ensureHttps, getTwoLettersOfName } from "~/lib/utils";
@@ -10,6 +10,7 @@ import {
 import PostInfo from "~/routes/blog+/components/post-info";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import OtherPosts from "~/routes/blog+/components/other-posts";
+import { PostOrPage } from "@tryghost/content-api";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params.slug || "";
@@ -27,6 +28,14 @@ export async function loader({ params }: LoaderFunctionArgs) {
         "html",
         "primary_tag",
         "reading_time",
+        "meta_title",
+        "og_image",
+        "og_title",
+        "og_description",
+        "twitter_image",
+        "twitter_title",
+        "twitter_description",
+        "custom_excerpt",
       ],
       include: ["authors", "tags"],
     },
@@ -49,6 +58,42 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
   return json({ post, posts });
 }
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const { post } = data as { post: PostOrPage };
+  const ogFacebook = post.og_image || post.feature_image;
+  const ogTwitter = post.twitter_image || post.feature_image;
+  return [
+    { title: post.meta_title || post.title },
+    {
+      name: "description",
+      content: post.meta_description || post.custom_excerpt,
+    },
+    { name: "theme-color", content: "#3D365C" },
+    { property: "og:title", content: post.og_title || post.title },
+    {
+      property: "og:description",
+      content: post.og_description || post.meta_description,
+    },
+    { property: "og:image", content: ogFacebook },
+    { property: "og:image:alt", content: post.title },
+    {
+      property: "og:url",
+      content: `https://chunks.space/blog/posts/${post.slug}`,
+    },
+    { property: "og:type", content: "article" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:site", content: "@spacechunksteam" },
+    { name: "twitter:title", content: post.twitter_title || post.title },
+    {
+      name: "twitter:description",
+      content: post.twitter_description || post.meta_description,
+    },
+    { name: "twitter:image", content: ogTwitter },
+    { property: "og:site_name", content: "Space Chunks" },
+    { property: "og:locale", content: "en_US" },
+  ];
+};
 
 export default function PostPage() {
   const { post, posts } = useLoaderData<typeof loader>();
