@@ -106,7 +106,12 @@ export default function BlogPage() {
                   {tagsToFilter
                     .filter((filteredTag) => filteredTag !== tag.slug)
                     .map((filteredTag) => (
-                      <input type="hidden" name="tags" value={filteredTag} />
+                      <input
+                        key={filteredTag}
+                        type="hidden"
+                        name="tags"
+                        value={filteredTag}
+                      />
                     ))}
 
                   {!isSelected ? (
