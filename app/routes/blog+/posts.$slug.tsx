@@ -1,4 +1,4 @@
-import { json, MetaFunction, type LoaderFunctionArgs } from "@remix-run/node";
+import { json, type LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ghostApi } from "~/service/ghost.server";
 import { ensureHttps, getTwoLettersOfName } from "~/lib/utils";
@@ -59,10 +59,32 @@ export async function loader({ params }: LoaderFunctionArgs) {
   return json({ post, posts });
 }
 
+/*
+
+twitter:image
+Not Provided
+A URL to an image file or to a dynamically generated image for Twitter link previews. Images must be less than 5 MB in size. JPG,PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used.SVG is not supported. og:image is used as a fallback.
+
+<meta property="twitter:image" content="Twitter link preview image URL">
+twitter:card
+Not Provided
+A card type for Twitter link previews. One of summary, summary_large_image, app, or player.
+
+<meta property="twitter:card" content="summary_large_image">
+twitter:title
+Not Provided
+A title for Twitter link previews with 70 characters max. og:title is used as a fallback.
+
+<meta property="twitter:title" content="Twitter link preview title">
+twitter:description
+Not Provided
+A description for Twitter link previews with 200 characters max. og:description is used as a fallback.
+ */
+
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const { post } = data as { post: PostOrPage };
-  const ogFacebook = post.og_image || post.feature_image;
-  const ogTwitter = post.twitter_image || post.feature_image;
+  const ogFacebook = ensureHttps(post.og_image || post.feature_image!!);
+  const ogTwitter = ensureHttps(post.twitter_image || post.feature_image!!);
   return [
     { title: post.meta_title || post.title },
     {
