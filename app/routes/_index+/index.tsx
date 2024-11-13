@@ -11,9 +11,9 @@ import ogTwitter from "~/assets/images/og-twitter.png";
 import { parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { logContactForm } from "~/service/contact.server";
-import { ghostApi } from "~/service/ghost.server";
 import { useLoaderData } from "@remix-run/react";
 import BlogSection from "./components/sections/blog-section";
+import { getPostsWithLimit } from "~/service/posts.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -56,21 +56,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const posts = await ghostApi.posts.browse({
-    limit: "3",
-    fields: [
-      "id",
-      "slug",
-      "title",
-      "feature_image",
-      "published_at",
-      "meta_description",
-      "primary_tag",
-      "reading_time",
-    ],
-    include: ["tags"],
-  });
-
+  const posts = await getPostsWithLimit(3);
   return { posts };
 }
 

@@ -1,6 +1,5 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, redirect, useLoaderData } from "@remix-run/react";
-import { ghostApi } from "~/service/ghost.server";
 import FeaturedPost from "~/routes/blog+/components/featured-post";
 import { TypographyH2, TypographyLead } from "~/components/ui/typography";
 import Post from "~/routes/blog+/components/post";
@@ -15,6 +14,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "~/components/ui/pagination";
+import { getPostsByTags, getTags } from "~/service/posts.server";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -24,53 +24,34 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const tagsToFilter = searchParams.getAll("tags");
   const page = parseInt(searchParams.get("page") || "1");
 
-  const posts = await ghostApi.posts.browse({
-    limit: ITEMS_PER_PAGE,
-    page: page,
-    fields: [
-      "id",
-      "slug",
-      "title",
-      "feature_image",
-      "featured",
-      "published_at",
-      "meta_description",
-      "primary_tag",
-    ],
-    include: ["tags"],
-    filter:
-      tagsToFilter.length > 0
-        ? `tags.slug:[${tagsToFilter.join(",")}]`
-        : undefined,
-  });
+  const allPosts = await getPostsByTags(tagsToFilter);
+  const featuredPost = allPosts.find((post) => post.frontmatter.featured);
 
-  if (page > posts.meta.pagination.pages) {
-    searchParams.set("page", posts.meta.pagination.pages.toString());
+  const maxPages = Math.ceil(allPosts.length / ITEMS_PER_PAGE);
+  if (page > maxPages || page < 1) {
+    searchParams.set("page", maxPages.toString());
     return redirect(`/blog?${searchParams.toString()}`);
   }
+  const posts = allPosts.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE,
+  );
 
-  const featuredPosts = await ghostApi.posts.browse({
-    limit: "1",
-    include: ["tags"],
-    filter: "featured:true",
-  });
+  const pagination = {
+    page,
+    pages: maxPages,
+    limit: ITEMS_PER_PAGE,
+    total: allPosts.length,
+    size: posts.length,
+    from: (page - 1) * ITEMS_PER_PAGE + 1,
+    to: page * ITEMS_PER_PAGE,
+  };
 
-  const tags = await ghostApi.tags.browse({
-    limit: "all",
-    fields: ["id", "name", "slug"],
-  });
-
-  const sortedPostsByDate = posts.sort((a, b) => {
-    return (
-      new Date(b.published_at || "").getTime() -
-      new Date(a.published_at || "").getTime()
-    );
-  });
-
+  const tags = await getTags();
   return json({
-    posts: sortedPostsByDate,
-    featuredPost: featuredPosts[0],
-    pagination: posts.meta.pagination,
+    posts,
+    featuredPost,
+    pagination,
     tags,
     tagsToFilter,
   });
@@ -99,12 +80,18 @@ export default function BlogPage() {
           <div className="flex items-center gap-4">
             <TypographyLead>Filter by tags:</TypographyLead>
             {tags.map((tag) => {
-              const isSelected = tagsToFilter.includes(tag.slug);
+              const isSelected = tagsToFilter.includes(tag.name);
 
               return (
-                <Form key={tag.id} method="get" preventScrollReset replace>
+                <Form
+                  key={tag.name}
+                  method="get"
+                  preventScrollReset
+                  replace
+                  className="mt-1 flex items-center"
+                >
                   {tagsToFilter
-                    .filter((filteredTag) => filteredTag !== tag.slug)
+                    .filter((filteredTag) => filteredTag !== tag.name)
                     .map((filteredTag) => (
                       <input
                         key={filteredTag}
@@ -115,7 +102,7 @@ export default function BlogPage() {
                     ))}
 
                   {!isSelected ? (
-                    <input type="hidden" name="tags" value={tag.slug} />
+                    <input type="hidden" name="tags" value={tag.name} />
                   ) : null}
                   <input
                     type="hidden"
@@ -124,11 +111,14 @@ export default function BlogPage() {
                   />
                   <Badge
                     variant={
-                      tagsToFilter.includes(tag.slug) ? "secondary" : "default"
+                      tagsToFilter.includes(tag.name) ? "secondary" : "default"
                     }
                     asChild
                   >
-                    <button type="submit" className="flex items-center gap-2">
+                    <button
+                      type="submit"
+                      className="flex items-center gap-2 uppercase"
+                    >
                       {isSelected ? (
                         <XIcon className="h-4 w-4" />
                       ) : (
@@ -154,13 +144,13 @@ export default function BlogPage() {
         </div>
         <ul className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {posts.map((post, index) => (
-            <li key={post.id}>
+            <li key={post.slug}>
               <Post
                 post={post}
                 recent={
                   // first in list and published in the last 7 days
                   index == 0 &&
-                  new Date(post.published_at || "").getTime() >
+                  new Date(post.frontmatter.published || "").getTime() >
                     Date.now() - 7 * 24 * 60 * 60 * 1000
                 }
               />

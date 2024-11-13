@@ -1,15 +1,15 @@
-import { PostOrPage } from "@tryghost/content-api";
 import { ensureHttps } from "~/lib/utils";
 import { TypographyLarge, TypographyP } from "~/components/ui/typography";
 import PostInfo from "~/routes/blog+/components/post-info";
 import { Link } from "@remix-run/react";
 import { FlameIcon } from "lucide-react";
+import { PostMeta } from "~/service/posts.type";
 
 export default function Post({
   post,
   recent,
 }: {
-  post: PostOrPage;
+  post: PostMeta;
   recent?: boolean;
 }) {
   return (
@@ -17,7 +17,7 @@ export default function Post({
       <img
         className="aspect-video rounded-lg"
         alt="featured post"
-        src={ensureHttps(post.feature_image || "")}
+        src={ensureHttps(post.frontmatter.featureImage || "")}
       />
       {recent && (
         <div className="absolute -top-1 left-3 flex items-center gap-2 rounded bg-[#FF2E00] px-2 py-0.5 text-sm font-bold uppercase text-white">
@@ -26,9 +26,9 @@ export default function Post({
         </div>
       )}
       <TypographyLarge className="text-xl font-bold">
-        {post.title}
+        {post.frontmatter.title}
       </TypographyLarge>
-      <TypographyP>{post.meta_description}</TypographyP>
+      <TypographyP>{post.frontmatter.description}</TypographyP>
       <PostInfo post={post} />
     </Link>
   );

@@ -1,13 +1,13 @@
-import { PostOrPage } from "@tryghost/content-api";
 import { ensureHttps } from "~/lib/utils";
 import { TypographyH1, TypographyP } from "~/components/ui/typography";
 import PostInfo from "~/routes/blog+/components/post-info";
 import { Link } from "@remix-run/react";
+import { PostMeta } from "~/service/posts.type";
 
 export default function FeaturedPost({
   featuredPost,
 }: {
-  featuredPost: PostOrPage;
+  featuredPost: PostMeta;
 }) {
   return (
     <Link
@@ -17,14 +17,14 @@ export default function FeaturedPost({
       <img
         className="aspect-video rounded-lg"
         alt="featured post"
-        src={ensureHttps(featuredPost.feature_image || "")}
+        src={ensureHttps(featuredPost.frontmatter.featureImage || "")}
       />
       <div className="flex flex-col">
         <span className="mb-4 font-bold uppercase text-mystical-normal">
           Spotlight
         </span>
-        <TypographyH1>{featuredPost.title}</TypographyH1>
-        <TypographyP>{featuredPost.meta_description}</TypographyP>
+        <TypographyH1>{featuredPost.frontmatter.title}</TypographyH1>
+        <TypographyP>{featuredPost.frontmatter.description}</TypographyP>
         <PostInfo post={featuredPost} />
       </div>
     </Link>
