@@ -1,6 +1,6 @@
-import { Link, useLocation } from "@remix-run/react";
+import { Link, useLocation } from "react-router";
 import * as React from "react";
-import { RemixLinkProps } from "@remix-run/react/dist/components";
+import { RemixLinkProps } from "@react-router/react/dist/components";
 
 export default function SmoothLink({
   children,

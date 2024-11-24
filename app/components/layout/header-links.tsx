@@ -16,7 +16,7 @@ import * as React from "react";
 import { useState } from "react";
 import { cn } from "~/lib/utils";
 import SmoothLink from "~/components/smooth-link";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 
 const links = [
   { name: "Start", to: "/" },

@@ -1,5 +1,5 @@
-import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, redirect, useLoaderData } from "@remix-run/react";
+import { LoaderFunctionArgs } from "react-router";
+import { Form, redirect, useLoaderData } from "react-router";
 import FeaturedPost from "~/routes/blog+/components/featured-post";
 import { TypographyH2, TypographyLead } from "~/components/ui/typography";
 import Post from "~/routes/blog+/components/post";
@@ -15,6 +15,7 @@ import {
   PaginationPrevious,
 } from "~/components/ui/pagination";
 import { getPostsByTags, getTags } from "~/service/posts.server";
+import type { Route } from "./+types/index";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -30,7 +31,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const maxPages = Math.ceil(allPosts.length / ITEMS_PER_PAGE);
   if (page > maxPages || page < 1) {
     searchParams.set("page", maxPages.toString());
-    return redirect(`/blog?${searchParams.toString()}`);
+    throw redirect(`/blog?${searchParams.toString()}`);
   }
   const posts = allPosts.slice(
     (page - 1) * ITEMS_PER_PAGE,
@@ -48,18 +49,17 @@ export async function loader({ request }: LoaderFunctionArgs) {
   };
 
   const tags = await getTags();
-  return json({
+  return {
     posts,
     featuredPost,
     pagination,
     tags,
     tagsToFilter,
-  });
+  };
 }
 
-export default function BlogPage() {
-  const { posts, featuredPost, pagination, tags, tagsToFilter } =
-    useLoaderData<typeof loader>();
+export default function BlogPage({loaderData}: Route.ComponentProps) {
+  const { posts, featuredPost, pagination, tags, tagsToFilter } = loaderData;
 
   function getPaginationLink(page: number) {
     // returns pagination link with tags

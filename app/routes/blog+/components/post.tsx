@@ -1,7 +1,7 @@
 import { ensureHttps } from "~/lib/utils";
 import { TypographyLarge, TypographyP } from "~/components/ui/typography";
 import PostInfo from "~/routes/blog+/components/post-info";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { FlameIcon } from "lucide-react";
 import { PostMeta } from "~/service/posts.type";
 
@@ -13,7 +13,7 @@ export default function Post({
   recent?: boolean;
 }) {
   return (
-    <Link to={`/blog/posts/${post.slug}`} className="relative space-y-4">
+    <Link to={`/blog/posts/${post.slug}`} className="relative space-y-4" prefetch="render">
       <img
         className="aspect-video rounded-lg"
         alt="featured post"

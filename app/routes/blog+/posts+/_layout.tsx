@@ -1,5 +1,5 @@
-import { json, type LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { type LoaderFunctionArgs, MetaFunction } from "react-router";
+import { Outlet, useLoaderData } from "react-router";
 import { ensureHttps, getTwoLettersOfName } from "~/lib/utils";
 import {
   TypographyH1,
@@ -20,7 +20,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const post = await getPostBySlug(slug);
   const posts = await getPostsWithLimit(3);
 
-  return json({ post, posts });
+  return { post, posts };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {

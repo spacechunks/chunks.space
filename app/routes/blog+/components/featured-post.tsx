@@ -1,7 +1,7 @@
 import { ensureHttps } from "~/lib/utils";
 import { TypographyH1, TypographyP } from "~/components/ui/typography";
 import PostInfo from "~/routes/blog+/components/post-info";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { PostMeta } from "~/service/posts.type";
 
 export default function FeaturedPost({

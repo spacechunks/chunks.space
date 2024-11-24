@@ -2,7 +2,7 @@ import textLogoImage from "~/assets/images/text-logo.png";
 import starsImage from "~/assets/images/stars.png";
 import HeaderLinks from "~/components/layout/header-links";
 import { Button } from "~/components/ui/button";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import Stone from "~/components/stone";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";

@@ -1,12 +1,11 @@
-import { useRouteError } from "react-router";
+import { isRouteErrorResponse, useRouteError } from "react-router";
 import HeaderLinks from "~/components/layout/header-links";
 import starsImage from "~/assets/images/stars.png";
 import textLogoImage from "~/assets/images/text-logo.png";
 import { motion } from "framer-motion";
 import * as React from "react";
 import { TypographyH1 } from "~/components/ui/typography";
-import { isRouteErrorResponse } from "@remix-run/router/utils";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { Button } from "~/components/ui/button";
 
 export default function ErrorPage() {

@@ -1,7 +1,7 @@
 import { TypographyH2 } from "~/components/ui/typography";
 import Post from "~/routes/blog+/components/post";
 import { Button } from "~/components/ui/button";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { PostMeta } from "~/service/posts.type";
 
 export default function OtherPosts({

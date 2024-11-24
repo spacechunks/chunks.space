@@ -1,4 +1,4 @@
-import { Await, useRouteLoaderData } from "@remix-run/react";
+import { Await, useRouteLoaderData } from "react-router";
 import type { loader as rootLoader } from "~/root";
 import { Button } from "~/components/ui/button";
 import DiscordIcon from "~/components/icons/discord";

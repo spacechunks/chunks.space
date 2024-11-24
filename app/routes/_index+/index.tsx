@@ -1,4 +1,4 @@
-import { ActionFunctionArgs, json, MetaFunction } from "@remix-run/node";
+import { ActionFunctionArgs, MetaFunction } from "react-router";
 import IndexHero from "~/routes/_index+/components/index-hero";
 import Footer from "~/components/layout/footer";
 import AboutSection from "~/routes/_index+/components/sections/about-section";
@@ -11,7 +11,7 @@ import ogTwitter from "~/assets/images/og-twitter.png";
 import { parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { logContactForm } from "~/service/contact.server";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 import BlogSection from "./components/sections/blog-section";
 import { getPostsWithLimit } from "~/service/posts.server";
 
@@ -66,7 +66,7 @@ export async function action({ request }: ActionFunctionArgs) {
   const submission = parseWithZod(formData, { schema: contactSchema });
 
   if (submission.status !== "success") {
-    return json(
+    return Response.json(
       { result: submission.reply() },
       { status: submission.status === "error" ? 400 : 200 },
     );
@@ -74,7 +74,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   await logContactForm(submission.value);
 
-  return json({ result: submission.reply() });
+  return { result: submission.reply() };
 }
 
 export default function Index() {

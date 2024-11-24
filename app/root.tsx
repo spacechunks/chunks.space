@@ -1,15 +1,8 @@
-import {
-  defer,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import stylesheet from "~/tailwind.css?url";
 import firaSans from "~/fira-sans.css?url";
 import sonner from "~/sonner.css?url";
-import { LinksFunction } from "@remix-run/node";
+import { LinksFunction } from "react-router";
 import { getDiscordGuildInfo } from "~/service/discord.server";
 import ErrorPage from "~/components/layout/error-page";
 import { Toaster } from "sonner";
@@ -36,7 +29,7 @@ export const links: LinksFunction = () => [
 
 export async function loader() {
   const guildData = getDiscordGuildInfo();
-  return defer({ guildData });
+  return { guildData };
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {

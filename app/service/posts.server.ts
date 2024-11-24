@@ -7,7 +7,7 @@ export const getPosts = async (): Promise<PostMeta[]> => {
     { eager: true },
   );
   // @ts-ignore
-  const build = await import("virtual:remix/server-build");
+  const build = await import("virtual:react-router/server-build");
   const posts = Object.entries(modules).map(([file, post]) => {
     let id = file.replace("../", "").replace(/\.mdx$/, "");
     let slug = build.routes[id].path;
