@@ -6,6 +6,8 @@ export const contactSchema = z.object({
   email: z.string().email(),
   message: z.string(),
   privacy: z.boolean(),
+  // honeypot field named website
+  website: z.string().optional(),
 });
 
 export type ContactForm = z.infer<typeof contactSchema>;

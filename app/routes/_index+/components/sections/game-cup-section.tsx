@@ -7,7 +7,7 @@ import {
 import { Button } from "~/components/ui/button";
 import gameCupImage from "~/assets/images/game-cup.png";
 import { motion } from "framer-motion";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 
 const cupVariants = {
   visible: {

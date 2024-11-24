@@ -1,8 +1,7 @@
-import { ActionFunctionArgs, json, MetaFunction } from "@remix-run/node";
+import { ActionFunctionArgs, MetaFunction } from "react-router";
 import IndexHero from "~/routes/_index+/components/index-hero";
 import Footer from "~/components/layout/footer";
 import AboutSection from "~/routes/_index+/components/sections/about-section";
-import ExperienceSection from "~/routes/_index+/components/sections/experience-section";
 import GameCupSection from "~/routes/_index+/components/sections/game-cup-section";
 import TeamSection from "~/routes/_index+/components/sections/team-section";
 import FaqSection from "~/routes/_index+/components/sections/faq-section";
@@ -12,6 +11,9 @@ import ogTwitter from "~/assets/images/og-twitter.png";
 import { parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { logContactForm } from "~/service/contact.server";
+import BlogSection from "./components/sections/blog-section";
+import { getPostsWithLimit } from "~/service/posts.server";
+import { Route } from "./+types/index";
 
 export const meta: MetaFunction = () => {
   return [
@@ -53,13 +55,18 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function loader() {
+  const posts = await getPostsWithLimit(3);
+  return { posts };
+}
+
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
 
   const submission = parseWithZod(formData, { schema: contactSchema });
 
   if (submission.status !== "success") {
-    return json(
+    return Response.json(
       { result: submission.reply() },
       { status: submission.status === "error" ? 400 : 200 },
     );
@@ -67,15 +74,17 @@ export async function action({ request }: ActionFunctionArgs) {
 
   await logContactForm(submission.value);
 
-  return json({ result: submission.reply() });
+  return { result: submission.reply() };
 }
 
-export default function Index() {
+export default function Index({ loaderData }: Route.ComponentProps) {
+  const { posts } = loaderData;
+
   return (
     <div className="flex flex-col gap-20 bg-white">
       <IndexHero />
       <AboutSection />
-      <ExperienceSection />
+      <BlogSection posts={posts} />
       <GameCupSection />
       <TeamSection />
       <FaqSection />

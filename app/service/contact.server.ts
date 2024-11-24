@@ -7,6 +7,11 @@ const webhookClient = new WebhookClient({
 });
 
 export async function logContactForm(contactForm: ContactForm) {
+  if (contactForm.website !== "" && contactForm.website !== undefined) {
+    console.log("Honeypot field filled out: ", contactForm.website);
+    return;
+  }
+
   console.log("Contact form submitted: ", contactForm);
   const embed = new EmbedBuilder()
     .setTitle("Contact form submitted")

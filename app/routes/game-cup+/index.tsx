@@ -2,7 +2,7 @@ import FaqSection from "~/routes/game-cup+/components/sections/faq-section";
 import Footer from "~/components/layout/footer";
 import ParticipantsSection from "~/routes/game-cup+/components/sections/participants-section";
 import TimerSection from "~/routes/game-cup+/components/sections/timer-section";
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 import GameCupHero from "~/routes/game-cup+/components/game-cup-hero";
 import ogFacebook from "~/assets/images/og-game-cup-facebook.png";
 import ogTwitter from "~/assets/images/og-game-cup-twitter.png";
