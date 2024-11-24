@@ -72,7 +72,7 @@ export default function PostPage() {
         <TypographyH1>{post.frontmatter.title}</TypographyH1>
         <TypographyP>{post.frontmatter.description}</TypographyP>
         <PostInfo post={post} />
-        <div className="mt-4">
+        <div className="mt-4 flex gap-6">
           {post.frontmatter.authors?.map((author) => (
             <div key={author.name} className="flex items-center gap-2">
               <Avatar className="h-6 w-6 rounded">
