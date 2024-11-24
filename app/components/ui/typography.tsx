@@ -222,8 +222,8 @@ export const TypographyProse = forwardRef<
 });
 TypographyProse.displayName = "TypographyProse";
 
-export const MotionTypographyH1 = motion(TypographyH1);
-export const MotionTypographyH2 = motion(TypographyH2);
-export const MotionTypographyH3 = motion(TypographyH3);
-export const MotionTypographyH4 = motion(TypographyH4);
-export const MotionTypographyP = motion(TypographyP);
+export const MotionTypographyH1 = motion.create(TypographyH1);
+export const MotionTypographyH2 = motion.create(TypographyH2);
+export const MotionTypographyH3 = motion.create(TypographyH3);
+export const MotionTypographyH4 = motion.create(TypographyH4);
+export const MotionTypographyP = motion.create(TypographyP);
