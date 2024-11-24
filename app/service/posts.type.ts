@@ -8,6 +8,7 @@ export type Frontmatter = {
   featureImage: string;
   ogImage?: string;
   twitterImage?: string;
+  hide?: boolean;
   authors: {
     name: string;
     image: string;

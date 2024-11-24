@@ -21,7 +21,7 @@ export default function PostInfo({ post }: { post: PostMeta }) {
       >
         {post.frontmatter.primaryTag || "unknown"}
       </TypographySmall>
-      <span className="h-2 w-2 rounded-full bg-mystical-subtle" />
+      <span className="h-2 w-2 aspect-square rounded-full bg-mystical-subtle" />
       <span className="text-mystical-subtle">{publishedAt}</span>
       <div className="flex items-center gap-1 text-mystical-subtle">
         <ClockIcon className="h-4 w-4" />

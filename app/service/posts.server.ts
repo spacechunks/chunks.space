@@ -1,23 +1,26 @@
 import { Frontmatter, PostMeta } from "~/service/posts.type";
 import { getTagMeta, TagMeta } from "~/lib/tags";
 
-export const getPosts = async (): Promise<PostMeta[]> => {
+export const getPosts = async (includeHidden: boolean = false): Promise<PostMeta[]> => {
   const modules = import.meta.glob<{ frontmatter: Frontmatter }>(
     "../routes/blog+/posts+/*.mdx",
     { eager: true },
   );
   // @ts-ignore
   const build = await import("virtual:react-router/server-build");
-  const posts = Object.entries(modules).map(([file, post]) => {
-    let id = file.replace("../", "").replace(/\.mdx$/, "");
-    let slug = build.routes[id].path;
-    if (slug === undefined) throw new Error(`No route for ${id}`);
+  const posts = Object.entries(modules)
+    .map(([file, post]) => {
+      let id = file.replace("../", "").replace(/\.mdx$/, "");
+      let slug = build.routes[id].path;
+      if (slug === undefined) throw new Error(`No route for ${id}`);
 
-    return {
-      slug,
-      frontmatter: post.frontmatter,
-    };
-  });
+      return {
+        slug,
+        frontmatter: post.frontmatter,
+      };
+    })
+    .filter((post) => !post.frontmatter.hide || includeHidden);
+
   return sortBy(posts, (post) => post.frontmatter.published, "desc");
 };
 
@@ -48,7 +51,7 @@ export const getTags = async (): Promise<TagMeta[]> => {
 };
 
 export const getPostBySlug = async (slug: string): Promise<PostMeta> => {
-  const posts = await getPosts();
+  const posts = await getPosts(true);
   const post = posts.find((post) => post.slug === slug);
   if (!post) {
     throw new Error(`No post found for slug ${slug}`);
