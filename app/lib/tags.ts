@@ -1,11 +1,15 @@
 export const tags = [
   {
-    name: "react",
-    color: "#61dafb",
+    name: "Behind The Szenes",
+    color: "#e11d48",
   },
   {
-    name: "nextjs",
-    color: "#06b6d4",
+    name: "Game Cup",
+    color: "#f59e0b",
+  },
+  {
+    name: "Spotlights",
+    color: "#7e22ce",
   },
 ];
 
