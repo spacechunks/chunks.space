@@ -8,7 +8,7 @@ The official website for Space Chunks - a team of developers, designers, and eve
 
 - **Framework:** React Router v7
 - **Styling:** TailwindCSS
-- **UI Components:** Customized shadn-ui component
+- **UI Components:** Customized shadn-ui components
 - **Animations:** Framer Motion
 - **Content:** Markdoc, MDX
 - **Build Tool:** Vite
