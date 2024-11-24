@@ -11,9 +11,9 @@ import ogTwitter from "~/assets/images/og-twitter.png";
 import { parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { logContactForm } from "~/service/contact.server";
-import { useLoaderData } from "react-router";
 import BlogSection from "./components/sections/blog-section";
 import { getPostsWithLimit } from "~/service/posts.server";
+import { Route } from "./+types/index";
 
 export const meta: MetaFunction = () => {
   return [
@@ -77,8 +77,8 @@ export async function action({ request }: ActionFunctionArgs) {
   return { result: submission.reply() };
 }
 
-export default function Index() {
-  const { posts } = useLoaderData<typeof loader>();
+export default function Index({ loaderData }: Route.ComponentProps) {
+  const { posts } = loaderData;
 
   return (
     <div className="flex flex-col gap-20 bg-white">
