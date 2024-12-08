@@ -1,6 +1,6 @@
 export const tags = [
   {
-    name: "Behind The Szenes",
+    name: "Behind The Scenes",
     color: "#e11d48",
   },
   {
