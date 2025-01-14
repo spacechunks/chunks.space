@@ -11,6 +11,10 @@ export const tags = [
     name: "Spotlights",
     color: "#7e22ce",
   },
+  {
+    name: "Development",
+    color: "#2563eb",
+  }
 ];
 
 export type TagMeta = (typeof tags)[number];
