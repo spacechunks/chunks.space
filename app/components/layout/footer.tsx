@@ -27,11 +27,6 @@ const navigationLinks = [
     title: "FAQ",
     href: "/#faq",
   },
-  {
-    title: "Project Board",
-    href: "https://board.chunks.space/",
-    target: "_blank",
-  },
 ];
 
 const workingOnLinks = [
