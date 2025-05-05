@@ -1,0 +1,92 @@
+---
+title: "Chunk Explorer: A First Introduction"
+description: Get to know the Chunk Explorers basics and how to publish your own content on our platform.
+published: 2025-05-05
+featured: false
+primaryTag: Development
+readingTime: 4
+featureImage: https://cdn.chunks.cloud/blog/explorer-first-intro/feature.png
+ogImage: https://cdn.chunks.cloud/blog/explorer-first-intro/og.png
+twitterImage: https://cdn.chunks.cloud/blog/explorer-first-intro/og.png
+hide: false
+authors:
+  - name: freggy
+    image: https://cravatar.eu/helmavatar/freggyy/64
+---
+
+# Introducing the Chunk Explorer
+
+After I [previously](https://chunks.space/blog/posts/how-we-instantly-start-servers) shared with you how some parts of the Chunk Explorer - or just Explorer for short - work on a technical level, this small post gives you an overview of the vision and user-level concepts.
+
+With the Explorer, our goal is to provide a platform where everyone can share the things they built with the world, without having to care about server administration and keeping things running. That's on us! The focus is currently only on minigames, just because they are easier to handle than, say, skyblock or normal survival servers. Imagine a steam-like experience where you can simply browse through a rich library of minigames and select the one you want to play, alone or with your friends. This is the goal! The Explorer can also function as a museum for preserving minigames that are no longer accessible due to servers shutting down. Spoiler alert! Look forward to playing some of the minigames from bergwerkLABS and possibly RewisServer on the Explorer!
+
+## Building blocks
+
+![](https://cdn.chunks.cloud/blog/explorer-first-intro/content/relations.png)
+
+Let's talk about the fundamental building blocks that make up the Explorer. There are basically three important ones:
+- Chunks
+- Flavors
+- Instances
+
+A _Chunk_ is the primary object that you will be interacting with. It represents a specific minigame and its variations that we call _Flavors_. For example, if you have a BedWars Chunk, possible flavors could be 8x1 or 8x4. _Instances_ on the other hand, are running replicas of a specific Chunk Flavor. So, when you select a Flavor an Instance will be created, that you can connect to once it's ready. That's it, pretty simple, right?!
+
+## Publishing your creations
+
+Now, in this section I want to shed some light on how you can get your content into the Explorer! At the moment, the only way you can do this will be using our CLI tool (which is currently not implemented yet, but will be very soon). Using it, you will be able to perform all important operations regarding Chunks and Flavors, like creating, updating and so on.
+
+### Directory layout
+
+Essentially, a Chunk Flavor is a directory containing the configuration of a Minecraft server. Currently, only Paper is supported, but other server software could be added in the future. What is shown below is the recommended way to setup your directory layout for a single Chunk, but you can do it however you see fit.
+
+```
+bedwars
+├── 8x1
+│  ├── bukkit.yml
+│  ├── commands.yml
+│  ├── plugins
+│  │  ├── bedwars
+│  │  │  └── config.yaml
+│  │  └── bedwars.jar
+│  ├── server.properties
+│  ├── spigot.yml
+│  └── world
+├── 8x4
+│   ├── bukkit.yml
+│   ├── commands.yml
+│   ├── plugins
+│   │  ├── bedwars
+│   │  │  └── config.yaml
+│   │  └── bedwars.jar
+│   ├── server.properties
+│   ├── spigot.yml
+│   └── world
+└── .chunk.yaml
+```
+
+As you can see, every Flavor of the BedWars Chunk lives in its own subdirectory. The configuration file for your Chunk will be called `.chunk.yaml`. For this BedWars example, the config file could look like the one below. Disclaimer: the config file structure is not final and will probably change a bit during the next few weeks/months.
+
+```yaml
+version: 'v1alpha1'
+chunk:
+  name: 'BedWars'
+  description: 'A simple bedwars plugin'
+  minecraft_version: '1.21.4'
+  tags:
+    - 'pvp'
+  flavors:
+    - name: '8x1'
+      version: 'v1.3.5'
+      path: './8x1'
+    - name: '8x4'
+      version: 'v1.4.6'
+      path: './8x4'
+```
+
+each Flavor will have a version associated with it that you **must** update in order to have your config changes published. Overriding versions is not allowed. How you structure your version string is completely up to you. Please note that as of now, only Minecraft versions ranging from `1.8.8` - `1.12.2` and `1.21` - `latest` are supported.
+
+Once you have your desired configuration in place, run a CLI command like `explorer chunk apply` (again, not final, will probably change) to initiate an upsert operation. Aaaand that's it! You've successfully published your minigame to the Explorer.
+
+## Looking forward
+
+Sooo, I hope this gives you a better understanding of how the Explorer will work. If you want to stay update-to-date regarding development, have a look at our [Discord](https://discord.chunks.space/) where I post development updates in the `developer-news` channel. If you have any questions feel free to ask them on Discord or create a discussion at the [Explorer GitHub repo](https://github.com/spacechunks/explorer).
