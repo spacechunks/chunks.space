@@ -97,7 +97,9 @@ export async function action({ request }: ActionFunctionArgs) {
 
   await logContactForm(submission.value);
 
-  return { result: submission.reply({ resetForm: true }) };
+  return Response.json({
+    result: submission.reply({ hideFields: CONTACT_FORM_HIDDEN_FIELDS }),
+  });
 }
 
 export default function Index({ loaderData }: Route.ComponentProps) {

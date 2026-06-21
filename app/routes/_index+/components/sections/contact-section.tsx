@@ -5,7 +5,7 @@ import {
   TypographyLead,
 } from "~/components/ui/typography";
 import { Button } from "~/components/ui/button";
-import { Form, Link, useActionData } from "react-router";
+import { Link, useActionData, useFetcher } from "react-router";
 import logoImage from "~/assets/images/logo.png";
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import {
@@ -17,9 +17,10 @@ import {
 import { getZodConstraint, parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { action } from "~/routes/_index+";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
+import { CheckCircle } from "lucide-react";
 
 const TURNSTILE_SCRIPT_ID = "cloudflare-turnstile-script";
 const TURNSTILE_SCRIPT_SRC =
@@ -90,7 +91,13 @@ function loadTurnstileScript() {
 export default function ContactSection({
   turnstileSiteKey,
 }: ContactSectionProps) {
-  const actionData = useActionData<typeof action>();
+  const fetcher = useFetcher<typeof action>();
+  const FetcherForm = fetcher.Form;
+  const routeActionData = useActionData<typeof action>();
+  const actionData = fetcher.data ?? routeActionData;
+  const isSubmitting = fetcher.state !== "idle";
+  const [hasSentSuccessfully, setHasSentSuccessfully] = useState(false);
+  const rocketControls = useAnimationControls();
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetIdRef = useRef<string | null>(null);
   const [form, fields] = useForm({
@@ -103,7 +110,8 @@ export default function ContactSection({
 
     shouldRevalidate: "onBlur",
   });
-  const successfullySent = actionData?.result?.status === "success";
+  const { onSubmit: conformOnSubmit, ...formProps } = getFormProps(form);
+  void conformOnSubmit;
 
   useEffect(() => {
     let cancelled = false;
@@ -128,14 +136,14 @@ export default function ContactSection({
 
         turnstileWidgetIdRef.current = turnstile.render(
           turnstileContainerRef.current,
-            {
-              sitekey: turnstileSiteKey,
-              action: "contact",
-              theme: "light",
-              size: "normal",
-              "error-callback": (errorCode) => {
-                console.warn("Turnstile widget error:", errorCode);
-              },
+          {
+            sitekey: turnstileSiteKey,
+            action: "contact",
+            theme: "light",
+            size: "normal",
+            "error-callback": (errorCode) => {
+              console.warn("Turnstile widget error:", errorCode);
+            },
           },
         );
       } catch (error) {
@@ -157,16 +165,27 @@ export default function ContactSection({
 
   useEffect(() => {
     if (actionData?.result?.status === "success") {
+      setHasSentSuccessfully(true);
       form.reset();
       toast.success("Thank you for reaching out! We'll get back to you soon.");
+      rocketControls.set("initial");
+      void rocketControls.start("fly").then(() => {
+        rocketControls.set("initial");
+      });
     }
-  }, [actionData?.result?.status]);
+  }, [actionData?.result, rocketControls]);
 
   useEffect(() => {
     if (actionData?.result) {
       window.turnstile?.reset(turnstileWidgetIdRef.current ?? undefined);
     }
   }, [actionData?.result]);
+
+  useEffect(() => {
+    if (fetcher.state === "submitting") {
+      setHasSentSuccessfully(false);
+    }
+  }, [fetcher.state]);
 
   return (
     <Section id="contact">
@@ -177,10 +196,11 @@ export default function ContactSection({
           hear from you! Feel free to reach out to us!
         </TypographyLead>
       </div>
-      <Form
+      <FetcherForm
         className="relative flex flex-col gap-8 rounded-lg bg-wild-sand-100 p-12"
         method="post"
-        {...getFormProps(form)}
+        action="/?index"
+        {...formProps}
       >
         <motion.img
           src={logoImage}
@@ -189,7 +209,7 @@ export default function ContactSection({
           className="absolute -top-12 h-28 w-auto md:-top-32 md:h-56"
           variants={rocketVariants}
           initial="initial"
-          animate={successfullySent ? "fly" : ""}
+          animate={rocketControls}
         />
         <TypographyH3>Let's chat! Send us a message.</TypographyH3>
         <div className="flex flex-col">
@@ -270,12 +290,26 @@ export default function ContactSection({
           id={fields["cf-turnstile-response"].errorId}
           errors={fields["cf-turnstile-response"].errors}
         />
+        {hasSentSuccessfully ? (
+          <div
+            role="status"
+            className="flex items-center gap-3 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-mystical-normal"
+          >
+            <CheckCircle className="h-5 w-5 shrink-0 text-green-600" />
+            <span>Thanks! Your message was sent successfully.</span>
+          </div>
+        ) : null}
         <div>
-          <Button variant="secondary" size="lg" className="px-16 uppercase">
-            Send
+          <Button
+            variant="secondary"
+            size="lg"
+            className="px-16 uppercase"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sending" : "Send"}
           </Button>
         </div>
-      </Form>
+      </FetcherForm>
     </Section>
   );
 }
