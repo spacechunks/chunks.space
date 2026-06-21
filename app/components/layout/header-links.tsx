@@ -23,7 +23,7 @@ const links = [
   { name: "About", to: "/#about" },
   { name: "Blog", to: "/blog" },
   { name: "Game Cup", to: "/game-cup" },
-  { name: "Team", to: "/#team" },
+  // { name: "Team", to: "/#team" },
   { name: "FAQ", to: "/#faq" },
   { name: "Contact", to: "/#contact" },
 ];
