@@ -14,6 +14,12 @@ import { logContactForm } from "~/service/contact.server";
 import BlogSection from "./components/sections/blog-section";
 import { getPostsWithLimit } from "~/service/posts.server";
 import { Route } from "./+types/index";
+import {
+  getTurnstileSiteKey,
+  verifyTurnstileToken,
+} from "~/service/turnstile.server";
+
+const CONTACT_FORM_HIDDEN_FIELDS = ["website", "cf-turnstile-response"];
 
 export const meta: MetaFunction = () => {
   return [
@@ -57,7 +63,7 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const posts = await getPostsWithLimit(3);
-  return { posts };
+  return { posts, turnstileSiteKey: getTurnstileSiteKey() };
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -67,18 +73,35 @@ export async function action({ request }: ActionFunctionArgs) {
 
   if (submission.status !== "success") {
     return Response.json(
-      { result: submission.reply() },
+      { result: submission.reply({ hideFields: CONTACT_FORM_HIDDEN_FIELDS }) },
       { status: submission.status === "error" ? 400 : 200 },
+    );
+  }
+
+  const turnstileVerified = await verifyTurnstileToken(
+    request,
+    submission.value["cf-turnstile-response"],
+  );
+
+  if (!turnstileVerified) {
+    return Response.json(
+      {
+        result: submission.reply({
+          formErrors: ["We could not verify the captcha. Please try again."],
+          hideFields: CONTACT_FORM_HIDDEN_FIELDS,
+        }),
+      },
+      { status: 400 },
     );
   }
 
   await logContactForm(submission.value);
 
-  return { result: submission.reply() };
+  return { result: submission.reply({ resetForm: true }) };
 }
 
 export default function Index({ loaderData }: Route.ComponentProps) {
-  const { posts } = loaderData;
+  const { posts, turnstileSiteKey } = loaderData;
 
   return (
     <div className="flex flex-col gap-20 bg-white">
@@ -86,9 +109,9 @@ export default function Index({ loaderData }: Route.ComponentProps) {
       <AboutSection />
       <BlogSection posts={posts} />
       <GameCupSection />
-      <TeamSection />
+      {/* <TeamSection /> */}
       <FaqSection />
-      <ContactSection />
+      <ContactSection turnstileSiteKey={turnstileSiteKey} />
       <Footer />
     </div>
   );

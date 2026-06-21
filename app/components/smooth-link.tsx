@@ -1,12 +1,11 @@
-import { Link, useLocation } from "react-router";
+import { Link, type LinkProps, useLocation } from "react-router";
 import * as React from "react";
-import { RemixLinkProps } from "@react-router/react/dist/components";
 
 export default function SmoothLink({
   children,
   delay,
   ...props
-}: RemixLinkProps &
+}: LinkProps &
   React.RefAttributes<HTMLAnchorElement> & {
     delay?: number;
   }) {

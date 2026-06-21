@@ -12,7 +12,12 @@ export async function logContactForm(contactForm: ContactForm) {
     return;
   }
 
-  console.log("Contact form submitted: ", contactForm);
+  console.log("Contact form submitted: ", {
+    subject: contactForm.subject,
+    name: contactForm.name,
+    email: contactForm.email,
+    message: contactForm.message,
+  });
   const embed = new EmbedBuilder()
     .setTitle("Contact form submitted")
     .addFields({

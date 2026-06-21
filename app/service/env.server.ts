@@ -1,9 +1,33 @@
 import { z } from "zod";
 
-const schema = z.object({
-  NODE_ENV: z.enum(["production", "development", "test"] as const),
-  CONTACT_DISCORD_WEBHOOK: z.string(),
-});
+const schema = z
+  .object({
+    NODE_ENV: z.enum(["production", "development", "test"] as const),
+    CONTACT_DISCORD_WEBHOOK: z.string(),
+    CLOUDFLARE_TURNSTILE_SITE_KEY: z.string().optional(),
+    CLOUDFLARE_TURNSTILE_SECRET_KEY: z.string().optional(),
+  })
+  .superRefine((env, ctx) => {
+    if (env.NODE_ENV !== "production") {
+      return;
+    }
+
+    if (!env.CLOUDFLARE_TURNSTILE_SITE_KEY) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Required in production",
+        path: ["CLOUDFLARE_TURNSTILE_SITE_KEY"],
+      });
+    }
+
+    if (!env.CLOUDFLARE_TURNSTILE_SECRET_KEY) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Required in production",
+        path: ["CLOUDFLARE_TURNSTILE_SECRET_KEY"],
+      });
+    }
+  });
 
 declare global {
   namespace NodeJS {

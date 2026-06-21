@@ -11,7 +11,10 @@ export const getPosts = async (includeHidden: boolean = false): Promise<PostMeta
   const posts = Object.entries(modules)
     .map(([file, post]) => {
       let id = file.replace("../", "").replace(/\.mdx$/, "");
-      let slug = build.routes[id].path;
+      let route = build.routes[id];
+      if (!route) throw new Error(`No route for ${id}`);
+
+      let slug = route.path;
       if (slug === undefined) throw new Error(`No route for ${id}`);
 
       return {

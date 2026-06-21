@@ -8,6 +8,9 @@ export const contactSchema = z.object({
   privacy: z.boolean(),
   // honeypot field named website
   website: z.string().optional(),
+  "cf-turnstile-response": z
+    .string({ required_error: "Please complete the captcha." })
+    .min(1, "Please complete the captcha."),
 });
 
 export type ContactForm = z.infer<typeof contactSchema>;

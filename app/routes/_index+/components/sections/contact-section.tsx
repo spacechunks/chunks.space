@@ -8,13 +8,22 @@ import { Button } from "~/components/ui/button";
 import { Form, Link, useActionData } from "react-router";
 import logoImage from "~/assets/images/logo.png";
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
-import { CheckboxField, Field, TextareaField } from "~/components/forms";
+import {
+  CheckboxField,
+  ErrorList,
+  Field,
+  TextareaField,
+} from "~/components/forms";
 import { getZodConstraint, parseWithZod } from "@conform-to/zod";
 import { contactSchema } from "~/service/contact.schema";
 import { action } from "~/routes/_index+";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+
+const TURNSTILE_SCRIPT_ID = "cloudflare-turnstile-script";
+const TURNSTILE_SCRIPT_SRC =
+  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
 
 const rocketVariants = {
   initial: { right: 0, rotate: 0, opacity: 100 },
@@ -31,8 +40,59 @@ const rocketVariants = {
   },
 };
 
-export default function ContactSection() {
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string;
+          action: string;
+          theme: "light" | "dark" | "auto";
+          size: "normal" | "compact" | "flexible";
+          "error-callback": (errorCode: string) => void;
+        },
+      ) => string;
+      reset: (widgetId?: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
+
+type ContactSectionProps = {
+  turnstileSiteKey: string;
+};
+
+function loadTurnstileScript() {
+  if (window.turnstile) {
+    return Promise.resolve();
+  }
+
+  const existingScript = document.getElementById(TURNSTILE_SCRIPT_ID);
+
+  if (existingScript) {
+    return new Promise<void>((resolve, reject) => {
+      existingScript.addEventListener("load", () => resolve(), { once: true });
+      existingScript.addEventListener("error", () => reject(), { once: true });
+    });
+  }
+
+  return new Promise<void>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.id = TURNSTILE_SCRIPT_ID;
+    script.src = TURNSTILE_SCRIPT_SRC;
+    script.addEventListener("load", () => resolve(), { once: true });
+    script.addEventListener("error", () => reject(), { once: true });
+    document.head.append(script);
+  });
+}
+
+export default function ContactSection({
+  turnstileSiteKey,
+}: ContactSectionProps) {
   const actionData = useActionData<typeof action>();
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetIdRef = useRef<string | null>(null);
   const [form, fields] = useForm({
     id: "contact-form",
     constraint: getZodConstraint(contactSchema),
@@ -46,11 +106,67 @@ export default function ContactSection() {
   const successfullySent = actionData?.result?.status === "success";
 
   useEffect(() => {
+    let cancelled = false;
+
+    async function renderTurnstile() {
+      try {
+        await loadTurnstileScript();
+
+        const turnstile = window.turnstile;
+
+        if (!turnstile) {
+          return;
+        }
+
+        if (
+          cancelled ||
+          !turnstileContainerRef.current ||
+          turnstileWidgetIdRef.current
+        ) {
+          return;
+        }
+
+        turnstileWidgetIdRef.current = turnstile.render(
+          turnstileContainerRef.current,
+            {
+              sitekey: turnstileSiteKey,
+              action: "contact",
+              theme: "light",
+              size: "normal",
+              "error-callback": (errorCode) => {
+                console.warn("Turnstile widget error:", errorCode);
+              },
+          },
+        );
+      } catch (error) {
+        console.warn("Failed to load Turnstile:", error);
+      }
+    }
+
+    renderTurnstile();
+
+    return () => {
+      cancelled = true;
+
+      if (turnstileWidgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(turnstileWidgetIdRef.current);
+        turnstileWidgetIdRef.current = null;
+      }
+    };
+  }, [turnstileSiteKey]);
+
+  useEffect(() => {
     if (actionData?.result?.status === "success") {
       form.reset();
       toast.success("Thank you for reaching out! We'll get back to you soon.");
     }
   }, [actionData?.result?.status]);
+
+  useEffect(() => {
+    if (actionData?.result) {
+      window.turnstile?.reset(turnstileWidgetIdRef.current ?? undefined);
+    }
+  }, [actionData?.result]);
 
   return (
     <Section id="contact">
@@ -144,7 +260,16 @@ export default function ContactSection() {
             tabIndex={-1}
             autoComplete="off"
           />
+          <div
+            ref={turnstileContainerRef}
+            className="w-fit max-w-full overflow-hidden"
+          />
         </div>
+        <ErrorList id={form.errorId} errors={form.errors} />
+        <ErrorList
+          id={fields["cf-turnstile-response"].errorId}
+          errors={fields["cf-turnstile-response"].errors}
+        />
         <div>
           <Button variant="secondary" size="lg" className="px-16 uppercase">
             Send
