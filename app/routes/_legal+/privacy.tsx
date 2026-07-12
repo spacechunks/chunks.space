@@ -212,29 +212,29 @@ export default function PrivacyPage() {
           gegen Direktwerbung (Art. 21 DSGVO)
         </h3>{" "}
         <p>
-          WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER
-          F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH
-          AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER
-          PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH FÜR EIN
-          AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. DIE JEWEILIGE
-          RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE
-          DIESER DATENSCHUTZERKLÄRUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR
-          IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES
-          SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE
-          VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN
-          ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUSÜBUNG
-          ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS.
+          Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 lit. e
+          oder f DSGVO erfolgt, haben Sie jederzeit das Recht, aus Gründen, die
+          sich aus Ihrer besonderen Situation ergeben, gegen die Verarbeitung
+          Ihrer personenbezogenen Daten Widerspruch einzulegen; dies gilt auch
+          für ein auf diese Bestimmungen gestütztes Profiling. Die jeweilige
+          Rechtsgrundlage, auf denen eine Verarbeitung beruht, entnehmen Sie
+          dieser Datenschutzerklärung. Wenn Sie Widerspruch einlegen, werden
+          wir Ihre betroffenen personenbezogenen Daten nicht mehr verarbeiten,
+          es sei denn, wir können zwingende schutzwürdige Gründe für die
+          Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten
+          überwiegen oder die Verarbeitung dient der Geltendmachung, Ausübung
+          oder Verteidigung von Rechtsansprüchen (Widerspruch nach Art. 21 Abs.
           1 DSGVO).
         </p>{" "}
         <p>
-          WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU
-          BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE
-          VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE
-          DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH FÜR DAS PROFILING,
-          SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE
-          WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT
-          MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21
-          ABS. 2 DSGVO).
+          Werden Ihre personenbezogenen Daten verarbeitet, um Direktwerbung zu
+          betreiben, so haben Sie das Recht, jederzeit Widerspruch gegen die
+          Verarbeitung Sie betreffender personenbezogener Daten zum Zwecke
+          derartiger Werbung einzulegen; dies gilt auch für das Profiling,
+          soweit es mit solcher Direktwerbung in Verbindung steht. Wenn Sie
+          widersprechen, werden Ihre personenbezogenen Daten anschließend nicht
+          mehr zum Zwecke der Direktwerbung verwendet (Widerspruch nach Art. 21
+          Abs. 2 DSGVO).
         </p>
         <h3>Beschwerde­recht bei der zuständigen Aufsichts­behörde</h3>{" "}
         <p>
@@ -451,7 +451,101 @@ export default function PrivacyPage() {
           Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche
           Aufbewahrungsfristen – bleiben unberührt.
         </p>
-        <h2>5. Newsletter</h2>
+        <h2>5. Datenerhebung im Chunk Explorer</h2>
+        <h3>Wie erfassen wir Ihre Daten?</h3>{" "}
+        <p>
+          Um den Chunk Explorer zu nutzen, melden Sie sich mit Ihrem
+          Microsoft-Konto an. Im Rahmen dieses Anmeldeprozesses erhalten und
+          speichern wir grundlegende Kontoinformationen, die uns von Microsoft
+          bereitgestellt werden, darunter Ihre E-Mail-Adresse sowie die Ihrem
+          Microsoft-Konto zugeordnete eindeutige Kennung.
+        </p>
+        <p>
+          Wenn Sie den Chunk Explorer verwenden, erfassen wir außerdem Daten,
+          die Sie im Rahmen der Nutzung des Dienstes bereitstellen. Dazu zählen
+          beispielsweise Minecraft-Serverdateien, die Sie hochladen,
+          Serverkonfigurationen, Projekteinstellungen sowie sonstige Inhalte,
+          die für das Hosting Ihrer Minecraft-Server erforderlich sind.
+        </p>
+        <p>
+          Weitere Daten werden automatisch erhoben, während Sie den Dienst
+          nutzen. Hierbei handelt es sich insbesondere um technische
+          Informationen wie Ihre IP-Adresse, Browserinformationen, Zugriffslogs
+          und Nutzungsdaten, die für den Betrieb, die Sicherheit und die
+          Zuverlässigkeit der Plattform erforderlich sind.
+        </p>
+        <p>
+          Wenn Sie sich künftig entscheiden, optionale Drittanbieterdienste zu
+          verbinden, können die damit verknüpften Kontoverbindungen von Ihnen
+          verwaltet und jederzeit wieder entfernt werden.
+        </p>
+        <h3>Wofür nutzen wir Ihre Daten?</h3>{" "}
+        <p>
+          Wir verarbeiten und speichern Ihre Daten, um die Plattform Chunk
+          Explorer bereitzustellen und zu betreiben. Dazu gehört insbesondere
+          das Hosting und die Verwaltung von durch Nutzer hochgeladenen
+          Minecraft-Servern.
+        </p>
+        <p>
+          Die Informationen Ihres Microsoft-Kontos verwenden wir, um Ihr Konto
+          zu authentifizieren, Sie innerhalb des Dienstes zu identifizieren und
+          Ihnen wichtige Informationen im Zusammenhang mit Ihrem Konto zu
+          übermitteln.
+        </p>
+        <p>
+          Hochgeladene Serverdateien und Konfigurationsdaten werden
+          ausschließlich dazu verwendet, Ihre Minecraft-Server bereitzustellen
+          und zu betreiben.
+        </p>
+        <p>
+          Technische Daten werden verarbeitet, um die Sicherheit, Stabilität
+          und Leistungsfähigkeit der Plattform zu gewährleisten, Missbrauch zu
+          erkennen, unbefugten Zugriff zu verhindern und Verstöße gegen unsere
+          Nutzungsbedingungen zu untersuchen.
+        </p>
+        <p>
+          Bestimmte Informationen, wie Ihr öffentliches Profil,
+          veröffentlichte Minecraft-Erlebnisse, Serverbeschreibungen,
+          Statistiken und Creator-Informationen, können für andere Nutzer der
+          Plattform öffentlich sichtbar sein, um Entdeckungsfunktionen und
+          weitere Community-Funktionen bereitzustellen.
+        </p>
+        <h2>6. Datenerhebung auf unserem Minecraft-Server</h2>
+        <h3>Wie erfassen wir Ihre Daten?</h3>{" "}
+        <p>
+          Alle auf unserem Minecraft-Server erhobenen Daten werden
+          ausschließlich in Verbindung mit Ihrem Minecraft-Profil, also der UUID
+          Ihres Accounts, gespeichert.
+        </p>
+        <p>
+          Einige Daten werden erhoben, wenn Sie diese durch Ihre Nutzung des
+          Servers aktiv bereitstellen. Dazu zählen beispielsweise Ihr
+          Spielfortschritt und Ihre Interaktionen innerhalb des Spiels.
+        </p>
+        <p>
+          Andere Daten werden automatisch erhoben, wenn Sie unserem
+          Minecraft-Server beitreten. Hierbei handelt es sich insbesondere um
+          technische Informationen wie Ihre Spielversion, Ihre IP-Adresse und
+          Verbindungsdaten.
+        </p>
+        <p>
+          Darüber hinaus speichern wir Verknüpfungen zu optionalen
+          Drittanbieterdiensten, etwa Discord. Diese Kontoverbindungen werden
+          vom Nutzer verwaltet und können jederzeit entfernt werden.
+        </p>
+        <h3>Wofür nutzen wir Ihre Daten?</h3>{" "}
+        <p>
+          Wir verarbeiten und speichern Ihre Daten, um unseren
+          Minecraft-Server zu betreiben, zu warten und Sicherheitsmaßnahmen
+          gegen Hacking, Missbrauch und andere Verstöße gegen unsere
+          Serverregeln umzusetzen.
+        </p>
+        <p>
+          Bestimmte Informationen, wie Spielerstatistiken, Ränge und
+          Spielfortschritt, können öffentlich sichtbar sein und verwendet
+          werden, um Funktionen wie Bestenlisten bereitzustellen.
+        </p>
+        <h2>7. Newsletter</h2>
         <h3>Newsletter­daten</h3>{" "}
         <p>
           Wenn Sie den auf der Website angebotenen Newsletter beziehen möchten,
@@ -501,7 +595,7 @@ export default function PrivacyPage() {
             unser berechtigtes Interesse überwiegen.
           </strong>
         </p>
-        <h2>6. Plugins und Tools</h2>
+        <h2>8. Plugins und Tools</h2>
         <h3>YouTube mit erweitertem Datenschutz</h3>{" "}
         <p>
           Diese Website bindet Videos der Website YouTube ein. Betreiber der
