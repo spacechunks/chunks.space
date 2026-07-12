@@ -203,23 +203,22 @@ export const TypographyMuted = forwardRef<
 });
 TypographyMuted.displayName = "TypographyMuted";
 
-export const TypographyProse = forwardRef<
-  HTMLParagraphElement,
-  TypographyProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <p
-      ref={ref}
-      {...props}
-      className={cn(
-        "prose prose-headings:text-mystical-normal prose-a:text-primary prose-figcaption:flex prose-figcaption:justify-center prose-img:rounded-xl prose-hr:mx-auto prose-hr:max-w-lg",
-        className,
-      )}
-    >
-      {children}
-    </p>
-  );
-});
+export const TypographyProse = forwardRef<HTMLDivElement, TypographyProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        {...props}
+        className={cn(
+          "prose prose-headings:text-mystical-normal prose-a:text-primary prose-figcaption:flex prose-figcaption:justify-center prose-img:rounded-xl prose-hr:mx-auto prose-hr:max-w-lg",
+          className,
+        )}
+      >
+        {children}
+      </div>
+    );
+  },
+);
 TypographyProse.displayName = "TypographyProse";
 
 export const MotionTypographyH1 = motion.create(TypographyH1);

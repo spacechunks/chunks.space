@@ -1,7 +1,6 @@
 import Footer from "~/components/layout/footer";
 import { Outlet } from "react-router";
 import LegalHero from "~/routes/_legal+/components/legal-hero";
-import { TypographyProse } from "~/components/ui/typography";
 import type { MetaFunction } from "react-router";
 import ogFacebook from "~/assets/images/og-game-cup-facebook.png";
 import ogTwitter from "~/assets/images/og-game-cup-twitter.png";
@@ -50,9 +49,9 @@ export default function PageLayout() {
   return (
     <div className="flex flex-col gap-20 bg-white">
       <LegalHero />
-      <TypographyProse>
+      <div className="w-full">
         <Outlet />
-      </TypographyProse>
+      </div>
       <Footer />
     </div>
   );
